@@ -1,0 +1,69 @@
+<!--
+* 组件名 Panel-组件
+* 开发者 : JY
+* 参数:  null
+* 事件:
+* xxx [] - 
+-->
+<!-- gh header -->
+<%- include('../templates/layout/get_header') %>
+
+<h1 class="container t-section-title">Panel 组件</h1>
+<h3 class="container t-types-title">类型 1</h3>
+
+<div class="container">
+  <div class="panel plan1">
+    <header class="panel-header d-flex">
+      <a href="#" class="d-flex align-items-center">
+        <h2 class="heading-2">How Jesus Will Come Back</h2>
+        <i class="icon-navigate-next d-xl-none"></i>
+      </a>
+    </header>
+    <div class="panel-body">
+      <!-- 填充内容 start -->
+      <div class="row">
+        <% for(let i=0; i < 5; i++; ){ %>
+        <div class="col-12 col-sm-6 col-md-3">
+          <div class="card article-card">
+            <div class="card-img">
+              <a href="#">
+                <img class="lazy loaded" alt="" data-ll-status="loaded"
+                  src="https://www.rainbowtoken.com/wp-content/uploads/2020/05/Lord-Jesus.jpg">
+              </a>
+            </div>
+            <div class="card-title">
+              <p><a href="#" title="Jesus Will Come Like a Thief in the Night: How Will This Prophecy Come True?">Jesus
+                  Will Come Like a Thief in the Night: How Will This Prophecy Come True?</a>
+                <span class="sort d-none d-lg-block"><a href="#" class="attrs">Daily Bread for Life</a></span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <% } %>
+      </div>
+      <!-- 填充内容 end -->
+    </div>
+  </div>
+</div>
+
+<h3 class="container t-types-title">类型 2</h3>
+
+<div class="container">
+  <div class="panel plan2">
+    <header class="panel-header d-flex align-items-center">
+      <a href="#" class="d-flex align-items-center">
+        <h2 class="heading-2">How to Enter the Kingdom of God </h2>
+        <i class="icon-navigate-next d-md-none"></i>
+      </a>
+      <a href="#" class="more">More</a>
+    </header>
+    <div class="panel-body">
+      <!-- 填充内容 start -->
+
+      <!-- 填充内容 end -->
+    </div>
+  </div>
+</div>
+
+<!-- gh footer -->
+<%- include('../templates/layout/get_footer') %>
