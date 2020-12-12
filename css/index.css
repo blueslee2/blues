@@ -1900,6 +1900,7 @@ pre[class*="language-"] {
       position: absolute;
       top: 40px;
       right: 0;
+      z-index: 4;
       width: 106px;
       padding: 14px 0;
       background-color: #ffffff;

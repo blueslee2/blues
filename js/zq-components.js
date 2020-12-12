@@ -465,8 +465,8 @@ window.slickCarousel(".carousel1", 4, 4);
 },{"@babel/runtime/helpers/classCallCheck":16,"@babel/runtime/helpers/createClass":17,"@babel/runtime/helpers/interopRequireDefault":18}],7:[function(require,module,exports){
 "use strict";var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports, "__esModule", { value: true });exports["default"] = void 0;var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));var exhibitionApps = /*#__PURE__*/function () {
   function exhibitionApps() {(0, _classCallCheck2["default"])(this, exhibitionApps);
-    this.headOperate = $("#header .head-operate");
-    this.$getAppBtn = $("#header .get-apps");
+    this.headOperate = $("#web-header .head-operate");
+    this.$getAppBtn = $("#web-header .get-apps");
     this.appsItemLength = 0;
     this.init();
   }(0, _createClass2["default"])(exhibitionApps, [{ key: "init", value: function init()
