@@ -115,6 +115,10 @@ body {
       .layout-header .header-right span i {
         margin-right: 4px;
         font-size: 20px; }
+    .layout-header .header-right .rele {
+      margin-right: 32px; }
+    .layout-header .header-right .produce_src span {
+      padding-left: 8px; }
   @media (min-width: 1500px) {
     .layout-header {
       position: fixed;
