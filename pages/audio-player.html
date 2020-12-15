@@ -1,6 +1,6 @@
 <!--
-* 组件名 搜索-组件
-* 开发者 : JY
+* 组件名 音乐播放器组件
+* 开发者 : HE
 * 参数:  null
 * 事件:
 * xxx [] - 
@@ -50,30 +50,160 @@
 </header>
     <!--gh content -->
     <main class="layout-container">
+<h1 class="container t-section-title">音乐播放器组件</h1>
 
-<h1 class="container t-section-title">搜索 组件</h1>
-<div class="container" id="header">
-  <div class="col-12 col-xl-8">
-    <div class="js-search-content">
-      <form role="search" method="get" class="search-form d-flex" data-localhost="https://www.findshepherd.com/"
-        data-google="https://www.findshepherd.com/search-gcse" action="https://www.findshepherd.com/search-gcse">
-        <div class="input-plate d-flex">
-          <label for="form-search-input"><i class="icon-search"></i></label>
-          <input type="search" class="search-input search-field" placeholder="Search..." name="q" autocomplete="off">
-          <button class="clear-btn"><i class="icon-close"></i></button>
-          <button class="search-change-btn d-flex align-item-center" data-type="site">
-            <span>Google</span><i class="icon-expand-more"></i></button>
-          <div class="search-options">
-            <button class="opt-item" data-option="site">This site</button>
-            <button class="opt-item" data-option="google">Google</button>
-          </div>
-        </div>
-        <button type="submit" class="search-btn btn d-none d-xl-inline-block">Search</button>
-      </form>
+<div id="fix-player">
+  <div class="fp-left">
+    <div class="player-title">
+      <span id="title-box-1">神的话语除去了我眼中的“梁木”（有声读物）</span>
+      <span id="title-box-2">神的话语除去了我眼中的“梁木”（有声读物）</span>
+    </div>
+    <div class="fp-data">
+        <span class="current-time">00:00</span>/
+        <span class="duration">41:01</span>
     </div>
   </div>
+  <div class="fp-center">
+    <button class="btn-icon play-pause">
+        <i class="icon-play-arrow"></i>
+        <i class="icon-pause"></i>
+      </button>
+  </div>
+
+  <button class="btn-icon btn-icon-close" style="display: none;">
+    <i class="icon-close"></i>
+    <i class="icon-navigate-next hidden"></i>
+  </button>
+
 </div>
 
+<section id="audio">
+  <div class="audio-basic">
+    <div class="container">
+      <h1 class="heading-1">VAudio</h1>
+      <p class="text-4">
+        该插件只提供js控制原生audio对象, 不提任何样式与html代码
+      </p>
+      <div class="row">
+        <div class="col-12">
+          <h3 class="heading-3">功能演示</h3>
+          <p class="text-4">请打开控制台查看事件监听回调</p>
+          <p class="text-4">
+            为了方便演示一下将结合
+            <a href="https://gitlab.199101.xyz/front-end/vendor/range"
+              >range 插件</a
+            >演示一个最简单的音频播放器
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="audio-player">
+            <button class="btn-icon play-pause">
+              <i class="icon-play-arrow"></i>
+              <i class="icon-pause"></i>
+            </button>
+            <div class="range-box">
+              <span class="current-time">00:00</span>
+              <div id="range-target"></div>
+              <span class="duration">00:00</span>
+            </div>
+            <div class="volume-box d-none d-md-flex align-items-center">
+              <button class="btn-icon"><i class="icon-volume-down"></i></button>
+              <div id="volume-range-target"></div>
+              <button class="btn-icon"><i class="icon-volume-up"></i></button>
+            </div>
+            <div class="audio-download d-none d-md-block">
+              <a class="btn-icon" href="https://www.hidden-advent.org/download.html?type=audiobooks&mime=audio&object_id=138115">
+                <i class="icon-list-download"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="col-12">
+          <button class="btn green" id="play">播放</button>
+          <button class="btn green" id="pause">暂停</button>
+          <button class="btn green" id="mute">静音</button>
+          <button class="btn green" id="unmute">取消静音</button>
+          <button class="btn green" id="destroy">销毁</button>
+        </div>
+        <div class="col-12">
+          <div class="text-4">下面是源代码, 功能很简单, 实现起来也很简单</div>
+          <pre><code class="language-javascript">
+    let V = new VAudio({
+      src:
+        "https://tr.kingdomsalvation.org/wp-content/grand-media/audio/shxg0306.m4a",
+      autoPlay: true
+    });
+    
+    let R = new Range({
+      el: "#range-target",
+      value: 0,
+      min: 0,
+      max: 1000
+    });
+    let durationSeconds = 0;
+    
+    V.on("loadstart", () => {
+      console.log("loadstart");
+    });
+    
+    //  歌曲加载完后, 更新时间码
+    V.on("loaded", (ev, currentTime, duration) => {
+      $(".current-time").html(V.format_time(currentTime));
+      $(".duration").html(V.format_time(duration));
+      durationSeconds = duration;
+    });
+    
+    //  拖拽range更新音频
+    //  使用isSwitch避免用户拖拽滑杆时频繁更新音频
+    let isSwitch: boolean = false;
+    R.on("changeStart", () => (isSwitch = true));
+    R.on("changeEnded", () => {
+      isSwitch = false;
+      V.play();
+    });
+    R.on("slideChange", (event, value, percentage, isManually) => {
+      //  更新音频
+      !isSwitch && !isManually && V.set_current_time(percentage, true);
+      //  更新时间吗, 实际开发中, 请想保存duration, 不要频繁调用
+      $(".current-time").html(V.format_time(durationSeconds * percentage));
+    });
+    V.on("watcherUpdate", (event, currentTime, percentage, duration, ended) => {
+      if (!isSwitch) {
+        //  更新range对象
+        R.set_value(percentage, true);
+        //  更新时间吗
+        $(".current-time").html(V.format_time(currentTime));
+      }
+    })
+      .on("ended", () => {
+        console.log("ended");
+        V.set_current_time(0);
+        V.play();
+      })
+      .on("play", () => console.log("play"))
+      .on("pause", () => console.log("pause"))
+      .on("mute", () => console.log("mute"))
+      .on("unmute", () => console.log("unmute"))
+      .on("destroy", () => console.log("destroy"));
+    
+    //  按钮绑定
+    $("#play").on("click", () => V.play());
+    $("#pause").on("click", () => V.pause());
+    $("#mute").on("click", () => V.mute());
+    $("#unmute").on("click", () => V.unmute());
+    $("#destroy").on("click", () => V.destroy());
+                    </code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="test">测试描边渐变+圆角</div>
 <!-- gh footer -->
 </main> <!-- End content -->
 
