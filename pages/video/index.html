@@ -1,9 +1,9 @@
 <!--
-* 组件名 Banner 组件
-* 开发者 : JY
+* 组件名 : 视频组件
+* 开发者 : 刘豪
 * 参数:  null
 * 事件:
-* xxx [] - 
+* xxx [] -
 -->
 <!-- gh header -->
 <!Doctype html>
@@ -42,148 +42,68 @@
     <!--gh content -->
     <main class="layout-container">
 
-<section id="t-banner">
-  <h1 class="container t-section-title">Banner 组件 <span>（非通屏）</span></h1>
-  <section id="banner">
-    <h3 class="container t-types-title">Banner 类型 3</h3>
-    <div class="f-p-first-plate container">
-  <div class="row">
-    <div class="col-md-8 d-none d-md-block large-ban">
-      <div class="ban-item">
-        <div class="ban-card">
-          <a href="https://www.rainbowtoken.com/descending-with-the-clouds.html">
-            <picture>
-              <source type="image/jpeg"
-                srcset="https://www.rainbowtoken.com/wp-content/uploads/2018/12/Lord-Jesus-and-angel.jpg">
-              <img class="lazy loaded" alt="Jesus Descending With the Clouds"
-                src="https://www.rainbowtoken.com/wp-content/uploads/2018/12/Lord-Jesus-and-angel.jpg"
-                data-ll-status="loaded">
-            </picture>
-            <div class="card-title d-none d-md-flex">
-              <i class="icon-play-circle-outline"></i>
-              <p>The True Meaning of "Jesus Coming on the Clouds" in Revelation 1:7</p>
-              <button href="#" class="watch">Watch now</button>
+<section id="article">
+  <div class="container">
+    <h1>视频组件</h1>
+    <p>&nbsp;</p>
+    <p>视频组件需要与<a href="https://gitlab.199101.xyz/front-end/vendor/rich-slick">rich-slick</a>插件一起使用</p>
+    <p>&nbsp;</p>
+    <p>使用方法大致如下, 具体使用细节请<a href="https://gitlab.199101.xyz/front-end/vendor/rich-slick">参照插件文档</a></p>
+    <section class="code-block d-none" style="margin-top: 32px">
+      <div id="target">
+        <script type="text/template" class="template">
+            <div>
+              <p class="title">我是标题</p>
+              <p class="duration">00:02:32</p>
+              <p class="url">https://docs.google.com/spreadsheets/d/10T2DUAyB5eQGMRtydd16QMAwHStOPfgZ1SJYsBisSXI/edit#gid=688132783</p>
+              <p class="cover">https://my.godfootsteps.org/wp-content/uploads/2020/09/TC-PC-TAB.jpg</p>
+              <p class="description">我是描述</p>
             </div>
-          </a>
-        </div>
+        </script>
       </div>
-    </div>
-    <div class="col-12 col-md-4">
-      <div class="banner-carousel-3">
-        <div class="ban-item">
-          <div class="ban-card">
-            <a href="https://www.rainbowtoken.com/accept-God-s-work-of-judgment.html">
-              <picture>
-                <source data-srcset="https://www.rainbowtoken.com/wp-content/uploads/2020/10/bible.jpg"
-                  type="image/jpeg">
-                <img class="lazy" data-src="https://www.rainbowtoken.com/wp-content/uploads/2020/10/bible.jpg" alt="" />
-              </picture>
-              <div class="card-title d-none d-md-flex">
-                <i class="icon-play-circle-outline"></i>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="ban-item">
-          <div class="ban-card">
-            <a href="https://www.rainbowtoken.com/true-salvation.html">
-              <picture>
-                <source data-srcset="https://www.rainbowtoken.com/wp-content/uploads/2020/10/true-salvation.jpg"
-                  type="image/jpeg">
-                <img class="lazy" data-src="https://www.rainbowtoken.com/wp-content/uploads/2020/10/true-salvation.jpg"
-                  alt="" />
-              </picture>
-              <div class="card-title d-none d-md-flex">
-                <i class="icon-play-circle-outline"></i>
-              </div>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
+      <script>
+        let R = new RichSlick({
+          selector: "#target",
+          templateSelector: ".template",
+          responsive: [
+            {
+              breakpoint: 375,
+              config: {
+                name: "layout-3",
+                imageTotalPerItem: 3,
+                total: 3
+              }
+            },
+            {
+              breakpoint: 768,
+              config: {
+                name: "default",
+                imageTotalPerItem: 3,
+                col: 4,
+                isShowMore: true,
+                isFreeToScroll: true,
+                width: 240
+              }
+            },
+            {
+              breakpoint: 998,
+              config: {
+                name: "layout-2",
+                imageTotalPerItem: 3
+              }
+            },
+            {
+              breakpoint: 1200,
+              config: {
+                name: "layout-1",
+                imageTotalPerItem: 5
+              }
+            }
+          ]
+        });
+      </script>
+    </section>
   </div>
-</div>
-
-    <h3 class="container t-types-title">Banner 类型 4</h3>
-    <div class="container">
-  <div class="row">
-    <div class="col-12 col-lg-8">
-      <div class="banner-carousel-2">
-        <div class="ban-item">
-          <div class="ban-card">
-            <a href="https://www.rainbowtoken.com/be-saved-and-perfected.html">
-              <picture>
-                <source
-                  data-srcset="https://www.rainbowtoken.com/wp-content/uploads/2015/12/How-to-Believe-in-God-to-Be-Saved-and-Perfected.jpg"
-                  type="image/jpeg">
-                <img class="lazy"
-                  data-src="https://www.rainbowtoken.com/wp-content/uploads/2015/12/How-to-Believe-in-God-to-Be-Saved-and-Perfected.jpg"
-                  alt="How to Believe in God to Be Saved and Perfected?" />
-              </picture>
-              <div class="card-title">
-                <p class="text-1">How to Believe in God to Be Saved and Perfected?</p>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="ban-item">
-          <div class="ban-card">
-            <a href="https://www.rainbowtoken.com/jesus-come-back-spiritual-body-flesh.html">
-              <picture>
-                <source data-srcset="https://www.rainbowtoken.com/wp-content/uploads/2017/11/Jesus-and-sheep-1.jpg"
-                  type="image/jpeg">
-                <img class="lazy"
-                  data-src="https://www.rainbowtoken.com/wp-content/uploads/2017/11/Jesus-and-sheep-1.jpg" alt="" />
-              </picture>
-              <div class="card-title">
-                <p class="text-1">Will Jesus Come Back in the Spiritual Body or in the Flesh When Taking His Believers?
-                </p>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="ban-item">
-          <div class="ban-card">
-            <a href="https://www.rainbowtoken.com/heavenly-kingdom.html">
-              <picture>
-                <source
-                  data-srcset="https://www.rainbowtoken.com/wp-content/uploads/2020/01/Into-the-Heavenly-Kingdom.jpg"
-                  type="image/jpeg">
-                <img class="lazy"
-                  data-src="https://www.rainbowtoken.com/wp-content/uploads/2020/01/Into-the-Heavenly-Kingdom.jpg"
-                  alt="Entre Into the Heavenly Kingdom" />
-              </picture>
-              <div class="card-title">
-                <p class="text-1">Can People Who Are Baptized Be Saved Into the Heavenly Kingdom?</p>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="ban-item">
-          <div class="ban-card">
-            <a href="https://www.rainbowtoken.com/songs-of-love-for-God.html">
-              <picture>
-                <source
-                  data-srcset="https://www.rainbowtoken.com/wp-content/uploads/2019/12/We-Can-t-Stop-Singing-Songs-of-Love-for-God.jpg"
-                  type="image/jpeg">
-                <img class="lazy"
-                  data-src="https://www.rainbowtoken.com/wp-content/uploads/2019/12/We-Can-t-Stop-Singing-Songs-of-Love-for-God.jpg"
-                  alt="" />
-              </picture>
-              <div class="card-title">
-                <p class="text-1">English Christian Music Video “We Can’t Stop Singing Songs of Love for God”</p>
-              </div>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-12 col-lg-4">
-      <p class="t-types-title">这里放侧边栏</p>
-    </div>
-  </div>
-</div>
-  </section>
 </section>
 
 <!-- gh footer -->
