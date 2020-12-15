@@ -81,7 +81,7 @@
 
 .slick-arrow {
   opacity: 0;
-  transition: opacity 0.3s ease; }
+  transition: all 0.3s ease; }
   .slick-arrow.slick-prev, .slick-arrow.slick-next {
     position: absolute;
     top: 0;
@@ -119,6 +119,10 @@
       content: "\e923"; }
   .slick-arrow:hover::before {
     color: #36b049; }
+  .slick-arrow:hover.slick-next {
+    transform: translateX(4px); }
+  .slick-arrow:hover.slick-prev {
+    transform: translateX(-4px); }
   .slick-arrow.slick-disabled {
     display: none !important; }
 
@@ -557,7 +561,8 @@
     text-overflow: ellipsis;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
-    max-height: calc(1.2em * 2); }
+    max-height: calc(1.2em * 2);
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.16); }
 
 @media (min-width: 768px) {
   #banner .banner-strip {
@@ -1619,7 +1624,8 @@
     .popular-call-action .call-action-box .call-action-btn span,
     .popular-call-action-base .call-action-box .call-action-btn span {
       font-size: 16px;
-      display: inline-block; }
+      display: inline-block;
+      text-align: center; }
     .popular-call-action .call-action-box .call-action-btn img,
     .popular-call-action-base .call-action-box .call-action-btn img {
       width: 30px;
@@ -2168,14 +2174,21 @@
         padding-right: 16px;
         padding-top: 16px; } }
 
-.panel a:not(.more):hover {
-  text-decoration: none; }
-
 .panel .panel-header {
   width: 100%; }
   .panel .panel-header .icon-navigate-next {
     font-size: 28px;
     transform: translateY(2px); }
+  .panel .panel-header a:not(.more):hover {
+    text-decoration: none; }
+
+.panel .level-title {
+  text-decoration: none;
+  display: flex;
+  margin: -8px auto 24px auto;
+  font-size: 18px; }
+  .panel .level-title a {
+    font-size: inherit; }
 
 .panel.plan1 {
   margin-bottom: 48px; }
@@ -2278,6 +2291,16 @@
   @media (max-width: 309.98px) {
     .panel.plan2 .panel-header {
       margin-bottom: 16px; } }
+
+@media (min-width: 768px) {
+  .panel .level-title {
+    margin-top: -16px;
+    justify-content: center;
+    font-size: 22px; } }
+
+@media (min-width: 1248px) {
+  .panel .level-title {
+    margin-bottom: 32px; } }
 
 .article-card-cover,
 .video-box .rich-slick-card .cover {
