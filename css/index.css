@@ -952,6 +952,10 @@ pre[class*="language-"] {
   #banner .banner-strip .ban-title {
     padding-bottom: 16px; } }
 
+@media (max-width: 575.98px) {
+  #banner .banner-strip {
+    height: calc(100vw * 0.5626); } }
+
 @media (max-width: 309.98px) {
   #banner .banner-strip {
     height: 180px; } }
@@ -1104,7 +1108,7 @@ pre[class*="language-"] {
   #banner .banner-carousel-5.init .ban-item {
     width: 676px; } }
 
-@media (min-width: 576px) {
+@media (max-width: 767.98px) {
   #banner .banner-carousel-5 .ban-item {
     padding: 0 16px;
     box-sizing: border-box; }
@@ -3300,6 +3304,18 @@ pre[class*="language-"] {
     display: inline-block;
     font-size: 12px; }
 
+@-webkit-keyframes today-scroll {
+  0% {
+    -webkit-transform: translate(0%); }
+  100% {
+    -webkit-transform: translate(-210%); } }
+
+@keyframes today-scroll {
+  0% {
+    transform: translate(0%); }
+  100% {
+    transform: translate(-210%); } }
+
 #fix-player {
   position: fixed;
   left: 0;
@@ -3445,27 +3461,6 @@ pre[class*="language-"] {
     #fix-player .btn-icon-close .icon-navigate-next {
       margin-right: -20px;
       font-size: 38px; }
-
-.test {
-  width: 300px;
-  height: 80px;
-  border: double 4px transparent;
-  border-radius: 80px;
-  background-image: linear-gradient(white, white), radial-gradient(circle at top left, #f00, #3020ff);
-  background-origin: border-box;
-  background-clip: content-box, border-box; }
-
-@-webkit-keyframes today-scroll {
-  0% {
-    -webkit-transform: translate(0%); }
-  100% {
-    -webkit-transform: translate(-210%); } }
-
-@keyframes today-scroll {
-  0% {
-    transform: translate(0%); }
-  100% {
-    transform: translate(-210%); } }
 
 .slide-left-PC {
   animation-name: slideLeftPC;

@@ -90,7 +90,6 @@ AudioPlayer = /*#__PURE__*/function () {
     this.init();
   }(0, _createClass2["default"])(AudioPlayer, [{ key: "init", value: function init()
     {
-
       this.init_element();
 
       this.init_vAudio();
@@ -105,7 +104,6 @@ AudioPlayer = /*#__PURE__*/function () {
     } }, { key: "init_element", value: function init_element()
 
     {
-
       this.$fixPlayer = $("#fix-player");
       this.$fixPlayerClose = $("#fix-player .btn-icon-close");
       this.durationSeconds = 0;
@@ -114,17 +112,12 @@ AudioPlayer = /*#__PURE__*/function () {
 
     //  初始化vAudio播放器
   }, { key: "init_vAudio", value: function init_vAudio() {var _this2 = this;
-
       var _this = this;
       this.V = new _vAudio["default"]({
         src:
         "https://tr.kingdomsalvation.org/wp-content/grand-media/audio/shxg0306.m4a",
         autoPlay: false });
 
-
-      this.V.on("loadstart", function () {
-        console.log("loadstart");
-      });
 
       //  歌曲加载完后, 更新时间码
       this.V.on("loaded", function (ev, currentTime, duration) {
@@ -133,7 +126,9 @@ AudioPlayer = /*#__PURE__*/function () {
         _this2.durationSeconds = duration;
       });
 
-      this.V.on("watcherUpdate", function (event, currentTime, percentage, duration, ended) {
+      this.V.on(
+      "watcherUpdate",
+      function (event, currentTime, percentage, duration, ended) {
         if (!_this2.isSwitch) {
           //  更新range对象
           _this2.audioRange.set_value(percentage, true);
@@ -141,23 +136,21 @@ AudioPlayer = /*#__PURE__*/function () {
           $(".current-time").html(_this2.V.format_time(currentTime));
         }
       }).
+
       on("ended", function () {
-        console.log("ended");
         _this2.V.set_current_time(0);
         _this2.V.play();
       }).
       on("play", function () {
         $(".play-pause").addClass("playing");
 
-        var animationName = window.innerWidth >= 768 ? "slide-right-PC" : "slide-right-MB";
+        var animationName =
+        window.innerWidth >= 768 ? "slide-right-PC" : "slide-right-MB";
         _this.$fixPlayer.removeClass().addClass(animationName);
       }).
       on("pause", function () {
         $(".play-pause").removeClass("playing");
-      }).
-      on("mute", function () {return console.log("mute");}).
-      on("unmute", function () {return console.log("unmute");}).
-      on("destroy", function () {return console.log("destroy");});
+      });
 
       //  按钮绑定
       $(".play-pause").on("click", function (ev) {
@@ -182,11 +175,6 @@ AudioPlayer = /*#__PURE__*/function () {
           _this2.V.play();
         }
       });
-      $("#play").on("click", function () {return _this2.V.play();});
-      $("#pause").on("click", function () {return _this2.V.pause();});
-      $("#mute").on("click", function () {return _this2.V.mute();});
-      $("#unmute").on("click", function () {return _this2.V.unmute();});
-      $("#destroy").on("click", function () {return _this2.V.destroy();});
     }
 
     //  初始化音频进度条
@@ -198,6 +186,7 @@ AudioPlayer = /*#__PURE__*/function () {
         min: 0,
         max: 1000 });
 
+
       //  拖拽range更新音频
       //  使用isSwitch避免用户拖拽滑杆时频繁更新音频
       this.isSwitch = false;
@@ -206,12 +195,19 @@ AudioPlayer = /*#__PURE__*/function () {
         _this3.isSwitch = false;
         _this3.V.play();
       });
-      this.audioRange.on("slideChange", function (event, value, percentage, isManually) {
+      this.audioRange.on(
+      "slideChange",
+      function (event, value, percentage, isManually) {
         //  更新音频
-        !_this3.isSwitch && !isManually && _this3.V.set_current_time(percentage, true);
+        !_this3.isSwitch &&
+        !isManually &&
+        _this3.V.set_current_time(percentage, true);
         //  更新时间码, 实际开发中, 先保存duration, 不要频繁调用
-        $(".current-time").html(_this3.V.format_time($this.durationSeconds * percentage));
+        $(".current-time").html(
+        _this3.V.format_time($this.durationSeconds * percentage));
+
       });
+
     }
 
     //  初始化音量进度条
@@ -241,8 +237,10 @@ AudioPlayer = /*#__PURE__*/function () {
 
       this.volumeRange.on("changeStart", function () {return isSwitch = true;});
       this.volumeRange.on("changeEnded", function () {return isSwitch = false;});
-      this.volumeRange.on("slideChange", function (event, value, percentage, isManually) {
-        //  更新音量          
+      this.volumeRange.on(
+      "slideChange",
+      function (event, value, percentage, isManually) {
+        //  更新音量
         !isSwitch && !isManually && _this4.V.set_volume(percentage);
 
         if (percentage == 0) {
@@ -252,37 +250,41 @@ AudioPlayer = /*#__PURE__*/function () {
           _this4.V.set_volume(percentage);
         }
       });
+
     } }, { key: "close_fix_player", value: function close_fix_player()
 
     {var _this5 = this;
       this.$fixPlayerClose.on("click", function () {
         var animationLeftName = "slide-left-PC";
 
-        var animationRightName = window.innerWidth >= 768 ? "slide-right-PC" : "slide-right-MB";
-        var animationName = _this5.$fixPlayer.attr("class").includes('right') ? animationLeftName : animationRightName;
+        var animationRightName =
+        window.innerWidth >= 768 ? "slide-right-PC" : "slide-right-MB";
+        var animationName = _this5.$fixPlayer.attr("class").includes("right") ?
+        animationLeftName :
+        animationRightName;
         _this5.$fixPlayer.removeClass().addClass(animationName);
 
-        if (_this5.$fixPlayer.attr("class").includes('right')) {
+        if (_this5.$fixPlayer.attr("class").includes("right")) {
           _this5.$fixPlayerClose.find(".icon-close").removeClass("hidden");
           _this5.$fixPlayerClose.find(".icon-navigate-next").addClass("hidden");
           _this5.isTicking = false;
         } else {
           _this5.isTicking = true;
         }
-        console.log(_this5.isTicking);
       });
     } }, { key: "on_scroll", value: function on_scroll()
 
     {var _this6 = this;
       this.isTicking = true;
-      $(window).on('scroll', function () {
-
+      $(window).on("scroll", function () {
         if (!_this6.isTicking) {
           window.requestAnimationFrame(function () {
             setTimeout(function () {
               _this6.$fixPlayer.removeClass().addClass("slide-left-MB");
               _this6.$fixPlayerClose.find(".icon-close").addClass("hidden");
-              _this6.$fixPlayerClose.find(".icon-navigate-next").removeClass("hidden");
+              _this6.$fixPlayerClose.
+              find(".icon-navigate-next").
+              removeClass("hidden");
               _this6.isTicking = false;
             }, 1000);
           });
@@ -436,15 +438,15 @@ AudioPlayer = /*#__PURE__*/function () {
           breakpoints: {
             768: {
               slidesPerView: 2,
-              spaceBetween: 20 },
+              spaceBetween: 46 },
 
             992: {
               slidesPerView: 2,
-              spaceBetween: 36 },
+              spaceBetween: 56 },
 
             1248: {
               slidesPerView: 3,
-              spaceBetween: 36 } } });
+              spaceBetween: 56 } } });
 
 
 

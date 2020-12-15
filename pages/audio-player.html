@@ -69,33 +69,29 @@
         <i class="icon-pause"></i>
       </button>
   </div>
-
   <button class="btn-icon btn-icon-close" style="display: none;">
     <i class="icon-close"></i>
     <i class="icon-navigate-next hidden"></i>
   </button>
-
 </div>
 
 <section id="audio">
   <div class="audio-basic">
     <div class="container">
-      <h1 class="heading-1">VAudio</h1>
-      <p class="text-4">
-        该插件只提供js控制原生audio对象, 不提任何样式与html代码
-      </p>
       <div class="row">
         <div class="col-12">
-          <h3 class="heading-3">功能演示</h3>
-          <p class="text-4">请打开控制台查看事件监听回调</p>
-          <p class="text-4">
-            为了方便演示一下将结合
-            <a href="https://gitlab.199101.xyz/front-end/vendor/range"
-              >range 插件</a
-            >演示一个最简单的音频播放器
-          </p>
+          <div class="text-4">源码有些复杂就不粘出来了，自行到 audio-player.js 里查看</div>
+          <hr>
+          <div class="text-4">
+            <dl>
+              <dt>引用了两个插件:</dt>
+              <dd>v-audio.min.js</dd>
+              <dd>range.min.js</dd>
+            </dl>
+          </div>
         </div>
       </div>
+    
       <div class="row">
         <div class="col-12">
           <div class="audio-player">
@@ -121,96 +117,19 @@
           </div>
         </div>
       </div>
-      <hr />
-      <div class="row">
-        <div class="col-12">
-          <button class="btn green" id="play">播放</button>
-          <button class="btn green" id="pause">暂停</button>
-          <button class="btn green" id="mute">静音</button>
-          <button class="btn green" id="unmute">取消静音</button>
-          <button class="btn green" id="destroy">销毁</button>
-        </div>
-        <div class="col-12">
-          <div class="text-4">下面是源代码, 功能很简单, 实现起来也很简单</div>
-          <pre><code class="language-javascript">
-    let V = new VAudio({
-      src:
-        "https://tr.kingdomsalvation.org/wp-content/grand-media/audio/shxg0306.m4a",
-      autoPlay: true
-    });
-    
-    let R = new Range({
-      el: "#range-target",
-      value: 0,
-      min: 0,
-      max: 1000
-    });
-    let durationSeconds = 0;
-    
-    V.on("loadstart", () => {
-      console.log("loadstart");
-    });
-    
-    //  歌曲加载完后, 更新时间码
-    V.on("loaded", (ev, currentTime, duration) => {
-      $(".current-time").html(V.format_time(currentTime));
-      $(".duration").html(V.format_time(duration));
-      durationSeconds = duration;
-    });
-    
-    //  拖拽range更新音频
-    //  使用isSwitch避免用户拖拽滑杆时频繁更新音频
-    let isSwitch: boolean = false;
-    R.on("changeStart", () => (isSwitch = true));
-    R.on("changeEnded", () => {
-      isSwitch = false;
-      V.play();
-    });
-    R.on("slideChange", (event, value, percentage, isManually) => {
-      //  更新音频
-      !isSwitch && !isManually && V.set_current_time(percentage, true);
-      //  更新时间吗, 实际开发中, 请想保存duration, 不要频繁调用
-      $(".current-time").html(V.format_time(durationSeconds * percentage));
-    });
-    V.on("watcherUpdate", (event, currentTime, percentage, duration, ended) => {
-      if (!isSwitch) {
-        //  更新range对象
-        R.set_value(percentage, true);
-        //  更新时间吗
-        $(".current-time").html(V.format_time(currentTime));
-      }
-    })
-      .on("ended", () => {
-        console.log("ended");
-        V.set_current_time(0);
-        V.play();
-      })
-      .on("play", () => console.log("play"))
-      .on("pause", () => console.log("pause"))
-      .on("mute", () => console.log("mute"))
-      .on("unmute", () => console.log("unmute"))
-      .on("destroy", () => console.log("destroy"));
-    
-    //  按钮绑定
-    $("#play").on("click", () => V.play());
-    $("#pause").on("click", () => V.pause());
-    $("#mute").on("click", () => V.mute());
-    $("#unmute").on("click", () => V.unmute());
-    $("#destroy").on("click", () => V.destroy());
-                    </code></pre>
-        </div>
-      </div>
     </div>
   </div>
 </section>
-<div class="test">测试描边渐变+圆角</div>
 <!-- gh footer -->
 </main> <!-- End content -->
 
 <button class="btn-floating btn-large" id="sidenav-btn"><i class="icon-menu"></i></button>
 <section class="layout-sidenav">
-  <div class="s-summary" id="js-menu">
+  <div class="sidenav-top">
     <button class="close-btn"><i class="icon-close"></i></button>
+  </div>
+
+  <div class="s-summary" id="js-menu">
     <header>
       <h4>组件目录</h4>
     </header>
