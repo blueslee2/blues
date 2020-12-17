@@ -47,7 +47,7 @@ Lists = /*#__PURE__*/function () {
 
     } }]);return Lists;}();exports["default"] = Lists;
 
-},{"../vendor/flexible-description.min":16,"@babel/runtime/helpers/classCallCheck":21,"@babel/runtime/helpers/createClass":22,"@babel/runtime/helpers/interopRequireDefault":23}],2:[function(require,module,exports){
+},{"../vendor/flexible-description.min":18,"@babel/runtime/helpers/classCallCheck":24,"@babel/runtime/helpers/createClass":25,"@babel/runtime/helpers/interopRequireDefault":26}],2:[function(require,module,exports){
 "use strict";var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports, "__esModule", { value: true });exports["default"] = void 0;var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));var _flexibleDescription = _interopRequireDefault(require("../vendor/flexible-description.min"));var
 
 Article = /*#__PURE__*/function () {
@@ -82,7 +82,7 @@ Article = /*#__PURE__*/function () {
 
     } }]);return Article;}();exports["default"] = Article;
 
-},{"../vendor/flexible-description.min":16,"@babel/runtime/helpers/classCallCheck":21,"@babel/runtime/helpers/createClass":22,"@babel/runtime/helpers/interopRequireDefault":23}],3:[function(require,module,exports){
+},{"../vendor/flexible-description.min":18,"@babel/runtime/helpers/classCallCheck":24,"@babel/runtime/helpers/createClass":25,"@babel/runtime/helpers/interopRequireDefault":26}],3:[function(require,module,exports){
 "use strict";var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports, "__esModule", { value: true });exports["default"] = void 0;var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));var _vAudio = _interopRequireDefault(require("../vendor/v-audio.min"));
 var _range = _interopRequireDefault(require("../vendor/range.min"));var
 AudioPlayer = /*#__PURE__*/function () {
@@ -293,7 +293,7 @@ AudioPlayer = /*#__PURE__*/function () {
       });
     } }]);return AudioPlayer;}();exports["default"] = AudioPlayer;
 
-},{"../vendor/range.min":17,"../vendor/v-audio.min":19,"@babel/runtime/helpers/classCallCheck":21,"@babel/runtime/helpers/createClass":22,"@babel/runtime/helpers/interopRequireDefault":23}],4:[function(require,module,exports){
+},{"../vendor/range.min":19,"../vendor/v-audio.min":22,"@babel/runtime/helpers/classCallCheck":24,"@babel/runtime/helpers/createClass":25,"@babel/runtime/helpers/interopRequireDefault":26}],4:[function(require,module,exports){
 "use strict";var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports, "__esModule", { value: true });exports["default"] = void 0;var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));var Banner = /*#__PURE__*/function () {
   function Banner() {(0, _classCallCheck2["default"])(this, Banner);
     this.init();
@@ -482,7 +482,7 @@ AudioPlayer = /*#__PURE__*/function () {
       });
     } }]);return Banner;}();exports["default"] = Banner;
 
-},{"@babel/runtime/helpers/classCallCheck":21,"@babel/runtime/helpers/createClass":22,"@babel/runtime/helpers/interopRequireDefault":23}],5:[function(require,module,exports){
+},{"@babel/runtime/helpers/classCallCheck":24,"@babel/runtime/helpers/createClass":25,"@babel/runtime/helpers/interopRequireDefault":26}],5:[function(require,module,exports){
 "use strict";var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports, "__esModule", { value: true });exports["default"] = void 0;var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));var CardCarousel = /*#__PURE__*/function () {
   function CardCarousel() {(0, _classCallCheck2["default"])(this, CardCarousel);
     this.init();
@@ -574,7 +574,122 @@ var slick_arrow_btn_control = function slick_arrow_btn_control($mySlick) {
 
 window.slickCarousel(".carousel1", 4, 4);
 
-},{"@babel/runtime/helpers/classCallCheck":21,"@babel/runtime/helpers/createClass":22,"@babel/runtime/helpers/interopRequireDefault":23}],6:[function(require,module,exports){
+},{"@babel/runtime/helpers/classCallCheck":24,"@babel/runtime/helpers/createClass":25,"@babel/runtime/helpers/interopRequireDefault":26}],6:[function(require,module,exports){
+"use strict";var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports, "__esModule", { value: true });exports["default"] = void 0;var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));var _jquery = require("jquery");var
+
+ClassifyLabel = /*#__PURE__*/function () {
+  function ClassifyLabel() {(0, _classCallCheck2["default"])(this, ClassifyLabel);
+    this.classifyLabel = $(".classify-label");
+    this.dropdownBtn = $(".dropdown-btn");
+    this.currentLabelNameBtn = $(".current-label-name");
+    this.$labelCount = this.classifyLabel.find(".label-count");
+
+    this.init();
+  }(0, _createClass2["default"])(ClassifyLabel, [{ key: "init", value: function init()
+
+    {
+      if (!this.classifyLabel.length) return;
+      this.mb_modal_box_init();
+      this.mb_modal_show_off();
+      this.pc_label_box_expand_reduce();
+      this.pc_sititem_active_position();
+      this.init_current_item_position($(".slider-items .item.active"));
+    }
+
+    /**
+     * 移动端弹框内容初始化
+     */ }, { key: "mb_modal_box_init", value: function mb_modal_box_init()
+    {
+      if (window.innerWidth > 768) return;
+      this.$labelCount.append("<div class=\"modal-mask\"></div>");
+      this.$labelCount.
+      children(".label-wrap").
+      append("<button class=\"close-btn\"><i class=\"icon-close\"></i></button>");
+    }
+    /**
+     * 移动端弹框显示与隐藏
+     */ }, { key: "mb_modal_show_off", value: function mb_modal_show_off()
+    {var _this = this;
+      //  显示
+      this.currentLabelNameBtn.on("click", function () {
+        _this.$labelCount.addClass("show");
+      });
+
+      //  隐藏
+
+      this.$labelCount.on("click", ".close-btn,.modal-mask,.item", function () {
+        _this.$labelCount.removeClass("show").addClass("hide");
+        setTimeout(function () {
+          _this.$labelCount.removeClass("hide");
+        }, 380);
+      });
+    }
+    /**
+     * PC 端 label box 展开收起
+     */ }, { key: "pc_label_box_expand_reduce", value: function pc_label_box_expand_reduce()
+    {var _this2 = this;
+      this.dropdownBtn.on("click", function (ev) {
+        var $el = $(ev.currentTarget);
+        if ($el.hasClass("active")) {
+          $el.removeClass("active");
+          _this2.classifyLabel.removeClass("open");
+          console.log(22);
+          _this2.init_current_item_position($(".slider-items>.active"));
+        } else {
+          $el.addClass("active");
+          _this2.classifyLabel.addClass("open");
+        }
+      });
+    }
+    /**
+     * PC 端点击item 执行动画
+     */ }, { key: "pc_sititem_active_position", value: function pc_sititem_active_position()
+    {var _this3 = this;
+      var $item = this.classifyLabel.find(".slider-items .item");
+      $item.on("click", function (ev) {
+        _this3.init_current_item_position($(ev.currentTarget));
+      });
+    }
+    /**
+     * 当前选中标签在当前居中显示
+     * @param {*} $active
+     */ }, { key: "init_current_item_position", value: function init_current_item_position(
+    $active) {
+      $active.addClass("active").siblings(".item").removeClass("active");
+      this.currentLabelNameBtn.find(".title").html($active.find("a").text());
+
+      if (window.innerWidth > 767 && !this.classifyLabel.hasClass("open")) {
+        var countWidth = this.$labelCount.outerWidth();
+        var itemWidth = $active.outerWidth();
+        var ItemOffsetLeft = $active.position().left;
+        var $slider = this.$labelCount.find(".slider-items");
+        var sliderWidth = (itemWidth + 16) * $slider.find(".item").length;
+
+        if (ItemOffsetLeft > countWidth / 2) {
+          if (ItemOffsetLeft + itemWidth + 20 > sliderWidth) return;
+
+          $slider.css({
+            transform: "translateX(-".concat(
+            ItemOffsetLeft - countWidth / 2 + itemWidth / 2, "px)"),
+
+            transition: "transform 0.35s ease" });
+
+        } else {
+          $slider.css({
+            transform: "translateX(0)",
+            transition: "transform 0.35s ease" });
+
+        }
+
+        setTimeout(function () {
+          $slider.css({
+            transition: "" });
+
+        }, 360);
+      }
+    } }]);return ClassifyLabel;}();exports["default"] = ClassifyLabel;
+
+},{"@babel/runtime/helpers/classCallCheck":24,"@babel/runtime/helpers/createClass":25,"@babel/runtime/helpers/interopRequireDefault":26,"jquery":28}],7:[function(require,module,exports){
 "use strict";var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports, "__esModule", { value: true });exports["default"] = void 0;var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));var CommercialFn = /*#__PURE__*/function () {
   function CommercialFn() {(0, _classCallCheck2["default"])(this, CommercialFn);
     this.$asideCommercialWrap = $(".aside-commercial-wrap");
@@ -601,7 +716,7 @@ window.slickCarousel(".carousel1", 4, 4);
       });
     } }]);return CommercialFn;}();exports["default"] = CommercialFn;
 
-},{"@babel/runtime/helpers/classCallCheck":21,"@babel/runtime/helpers/createClass":22,"@babel/runtime/helpers/interopRequireDefault":23}],7:[function(require,module,exports){
+},{"@babel/runtime/helpers/classCallCheck":24,"@babel/runtime/helpers/createClass":25,"@babel/runtime/helpers/interopRequireDefault":26}],8:[function(require,module,exports){
 "use strict";var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports, "__esModule", { value: true });exports["default"] = void 0;var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));var CommercialPicture = /*#__PURE__*/function () {
   function CommercialPicture() {(0, _classCallCheck2["default"])(this, CommercialPicture);
     this.popularPicture = $(".popular-commercial-picture");
@@ -673,7 +788,7 @@ window.slickCarousel(".carousel1", 4, 4);
       $el.removeAttr(dataArry.join(" "));
     } }]);return CommercialPicture;}();exports["default"] = CommercialPicture;
 
-},{"@babel/runtime/helpers/classCallCheck":21,"@babel/runtime/helpers/createClass":22,"@babel/runtime/helpers/interopRequireDefault":23}],8:[function(require,module,exports){
+},{"@babel/runtime/helpers/classCallCheck":24,"@babel/runtime/helpers/createClass":25,"@babel/runtime/helpers/interopRequireDefault":26}],9:[function(require,module,exports){
 "use strict";var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports, "__esModule", { value: true });exports["default"] = void 0;var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));var exhibitionApps = /*#__PURE__*/function () {
   function exhibitionApps() {(0, _classCallCheck2["default"])(this, exhibitionApps);
     this.headOperate = $("#web-header .head-operate");
@@ -776,7 +891,7 @@ window.slickCarousel(".carousel1", 4, 4);
       }, 420);
     } }]);return exhibitionApps;}();exports["default"] = exhibitionApps;
 
-},{"@babel/runtime/helpers/classCallCheck":21,"@babel/runtime/helpers/createClass":22,"@babel/runtime/helpers/interopRequireDefault":23}],9:[function(require,module,exports){
+},{"@babel/runtime/helpers/classCallCheck":24,"@babel/runtime/helpers/createClass":25,"@babel/runtime/helpers/interopRequireDefault":26}],10:[function(require,module,exports){
 "use strict";var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports, "__esModule", { value: true });exports["default"] = void 0;var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));var FormSearch = /*#__PURE__*/function () {
   function FormSearch() {(0, _classCallCheck2["default"])(this, FormSearch);
     this.$searchForm = $(".search-form");
@@ -915,7 +1030,7 @@ window.slickCarousel(".carousel1", 4, 4);
       });
     } }]);return FormSearch;}();exports["default"] = FormSearch;
 
-},{"@babel/runtime/helpers/classCallCheck":21,"@babel/runtime/helpers/createClass":22,"@babel/runtime/helpers/interopRequireDefault":23}],10:[function(require,module,exports){
+},{"@babel/runtime/helpers/classCallCheck":24,"@babel/runtime/helpers/createClass":25,"@babel/runtime/helpers/interopRequireDefault":26}],11:[function(require,module,exports){
 "use strict";var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports, "__esModule", { value: true });exports["default"] = void 0;var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass")); //  原生获取样式中的某一个属性的值
 var get_style = function get_style(ele, attr) {
   return (
@@ -970,7 +1085,7 @@ PopularAd = /*#__PURE__*/function () {
       };
     } }]);return PopularAd;}();exports["default"] = PopularAd;
 
-},{"@babel/runtime/helpers/classCallCheck":21,"@babel/runtime/helpers/createClass":22,"@babel/runtime/helpers/interopRequireDefault":23}],11:[function(require,module,exports){
+},{"@babel/runtime/helpers/classCallCheck":24,"@babel/runtime/helpers/createClass":25,"@babel/runtime/helpers/interopRequireDefault":26}],12:[function(require,module,exports){
 "use strict";var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports, "__esModule", { value: true });exports["default"] = void 0;var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));var SparePartsFn = /*#__PURE__*/function () {
   function SparePartsFn() {(0, _classCallCheck2["default"])(this, SparePartsFn);
     this.init();
@@ -989,7 +1104,7 @@ PopularAd = /*#__PURE__*/function () {
       }, 300);
     } }]);return SparePartsFn;}();exports["default"] = SparePartsFn;
 
-},{"@babel/runtime/helpers/classCallCheck":21,"@babel/runtime/helpers/createClass":22,"@babel/runtime/helpers/interopRequireDefault":23}],12:[function(require,module,exports){
+},{"@babel/runtime/helpers/classCallCheck":24,"@babel/runtime/helpers/createClass":25,"@babel/runtime/helpers/interopRequireDefault":26}],13:[function(require,module,exports){
 "use strict";var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports, "__esModule", { value: true });exports["default"] = void 0;var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));var Subscription = /*#__PURE__*/function () {
   function Subscription() {(0, _classCallCheck2["default"])(this, Subscription);
     this.viaEmail = $(".via-email");
@@ -1019,11 +1134,18 @@ PopularAd = /*#__PURE__*/function () {
      * 判断用户是否勾选隐私条款
      */ }, { key: "judge_privacy_checkbox", value: function judge_privacy_checkbox()
     {var _this = this;
-      $('input[type="submit"],button[type="submit"]').on("click", function (ev) {
-        var $subForm =
-        $(ev.currentTarget).closest("form.mc4wp-form") ||
-        $(ev.currentTarget).closest(".j-sub-form");
-        if ($subForm.length < 1) return;
+      $('input[type="submit"],button[type="submit"],.messenger-payload').on(
+      "click",
+      function (ev) {
+        var $subForm = $();
+        if ($(ev.currentTarget).closest("form.mc4wp-form").length) {
+          $subForm = $(ev.currentTarget).closest("form.mc4wp-form");
+        } else if ($(ev.currentTarget).closest(".j-sub-form").length) {
+          $subForm = $(ev.currentTarget).closest(".j-sub-form");
+        } else {
+          return;
+        }
+
         var $getPolicy = $subForm.find(".news-privacy");
 
         if ($getPolicy.length && !$getPolicy.find(".checkbox").is(":checked")) {
@@ -1032,6 +1154,7 @@ PopularAd = /*#__PURE__*/function () {
         }
       });
 
+
       this.$getPolicy.on("click", function () {
         if (_this.$getPolicy.find(".checkbox").is(":checked")) {
           _this.$getPolicy.removeClass("warning");
@@ -1039,7 +1162,213 @@ PopularAd = /*#__PURE__*/function () {
       });
     } }]);return Subscription;}();exports["default"] = Subscription;
 
-},{"@babel/runtime/helpers/classCallCheck":21,"@babel/runtime/helpers/createClass":22,"@babel/runtime/helpers/interopRequireDefault":23}],13:[function(require,module,exports){
+},{"@babel/runtime/helpers/classCallCheck":24,"@babel/runtime/helpers/createClass":25,"@babel/runtime/helpers/interopRequireDefault":26}],14:[function(require,module,exports){
+"use strict";var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports, "__esModule", { value: true });exports["default"] = void 0;var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));var _tabs = _interopRequireDefault(require("../vendor/tabs.min"));var
+
+TabsComponent = /*#__PURE__*/function () {
+  function TabsComponent(uniqueClass) {(0, _classCallCheck2["default"])(this, TabsComponent);
+    this.$el = $(".".concat(uniqueClass));
+    this.T = new _tabs["default"]({
+      el: ".".concat(uniqueClass, " .tabs") });
+
+    this.init(uniqueClass);
+  }(0, _createClass2["default"])(TabsComponent, [{ key: "init", value: function init(
+
+    uniqueClass) {
+      //  处理 popover 效果
+      this.popoverHandler();
+      //  处理移动端得弹框
+      this.modalHandler(uniqueClass);
+      //  处理事件监听
+      this.eventHandler();
+    } }, { key: "modalHandler", value: function modalHandler(
+
+    uniqueClass) {var _this = this;
+      var $modal = $("<div class=\"modal modal-".concat(uniqueClass, "\" />"));
+      var items = this.getTabs();
+      var content = "";
+      items.map(function (item) {
+        content += "<button data-index=\"".concat(item.index, "\">").concat(item.title, "</button>");
+      });
+      $(document.body).append($modal);
+      $modal.html("<div class=\"modal-dialog\">\n      <div class=\"modal-box\">\n        <div class=\"modal-header\">\n          <button class=\"modal-header-close\"><i class=\"icon-close\"></i></button>\n        </div>\n        <div class=\"modal-body\">\n          ".concat(
+
+
+
+
+
+      content, "\n        </div>\n      </div>\n    </div>\n    "));
+
+
+
+
+      this.M = $modal;
+
+      this.M.find(".modal-body button").on("click", function (ev) {
+        var index = ev.currentTarget.dataset.index;
+        _this.T.go(index);
+      });
+
+      this.M.find(".modal-header-close").on("click", function (ev) {
+        _this.hideModal();
+      });
+    } }, { key: "hideModal", value: function hideModal()
+
+    {var _this2 = this;
+      this.M.animate(
+      {
+        opacity: 0 },
+
+      function () {
+        _this2.M.hide();
+      });
+
+    } }, { key: "showModal", value: function showModal(
+
+    tabData) {
+      this.M.show();
+      //  找到当前选中项
+      var current = tabData.find(function (item) {return item.current === true;});
+      this.setCurrentModalIem(current.index);
+      this.M.animate({
+        opacity: 1 });
+
+    } }, { key: "eventHandler", value: function eventHandler()
+
+    {var _this3 = this;
+      this.T.on("change", function (ev, index, lastIndex) {
+        _this3.setCurrentPopover(index);
+        _this3.setCurrentModalIem(index);
+        _this3.$el.trigger("change", [index, lastIndex]);
+      });
+
+      this.T.on("expandMoreBtnClick", function (ev, tabData) {
+        _this3.showModal(tabData);
+        _this3.$el.trigger("expandMoreBtnClick", [tabData]);
+      });
+
+      $(document).on("click", function (ev) {
+        if (!ev.target.closest(".tabs-component")) {
+          //  隐藏popover-box
+          _this3.hidePopover();
+        }
+      });
+
+      var resize = function resize() {
+        if (parseInt(_this3.M.css("opacity")) === 1 && window.innerWidth > 768) {
+          _this3.hideModal();
+        }
+
+        if (_this3.$el.hasClass("popover") && window.innerWidth < 768) {
+          _this3.hidePopover();
+        }
+      };
+
+      $(window).on("resize", this.debounce(resize, 200));
+    } }, { key: "popoverHandler", value: function popoverHandler()
+
+    {var _this4 = this;
+      //  往后面添加一个icon
+      this.$el.append("<button class=\"btn-icon popover-btn\"><i class=\"icon-more-horiz\"></i></button>");
+
+
+      var $popoverBtn = this.$el.find(".popover-btn");
+      $popoverBtn.on("click", function () {return (
+          _this4.$el.hasClass("popover") ? _this4.hidePopover() : _this4.showPopover());});
+
+
+      //  追加一个popover面板
+      var items = this.getTabs();
+      var popoverHTML = "";
+      items.map(function (item) {
+        popoverHTML += "<div class=\"col-4 popover-item\"><button class=\"btn line-btn green-line\" data-index=\"".concat(item.index, "\">").concat(item.title, "</button></div>");
+      });
+      this.$el.append(
+      $("<div class=\"popover-box\" />").html("<div class=\"row\">".concat(
+      popoverHTML, "</div>")));
+
+
+      this.$popoverBox = this.$el.find(".popover-box");
+
+      //  处理点击事件
+      this.$popoverBox.find(".popover-item .btn").on("click", function (ev) {
+        var index = ev.currentTarget.dataset.index;
+        _this4.T.go(index);
+      });
+    } }, { key: "getTabs", value: function getTabs()
+
+    {
+      var items = [];
+      this.$el.
+      find(".tabs-list").
+      children("li").
+      map(function (key, item) {
+        items.push({
+          index: item.dataset.index,
+          title: item.innerHTML });
+
+      });
+      return items;
+    } }, { key: "hidePopover", value: function hidePopover()
+
+    {
+      this.$el.removeClass("popover");
+      this.$popoverBox.fadeOut();
+    } }, { key: "showPopover", value: function showPopover()
+
+    {
+      this.$el.addClass("popover");
+      //  选中当前元素
+      //  找到当前选中
+      var currentIndex = this.$el.find(".tabs-list .current").data("index");
+      this.setCurrentPopover(currentIndex);
+      this.$popoverBox.fadeIn();
+    } }, { key: "setCurrentModalIem", value: function setCurrentModalIem(
+
+    index) {
+      this.M.find(".modal-body button").
+      eq(index).
+      addClass("current").
+      siblings().
+      removeClass("current");
+    } }, { key: "setCurrentPopover", value: function setCurrentPopover(
+
+    index) {
+      this.$popoverBox.
+      find(".popover-item").
+      eq(index).
+      addClass("current").
+      siblings().
+      removeClass("current");
+    } }, { key: "debounce", value: function debounce(
+
+    fn, delay) {var _arguments = arguments;
+      delay = delay || 100;
+      return function () {
+        var args = Array.prototype.slice.apply(_arguments);
+        clearTimeout(fn.debounceTimeout);
+        fn.debounceTimeout = setTimeout(function () {
+          fn.apply(window, args);
+        }, delay);
+      };
+    } }]);return TabsComponent;}();var
+
+
+Tabs = /*#__PURE__*/function () {
+  function Tabs() {(0, _classCallCheck2["default"])(this, Tabs);
+    this.init();
+  }(0, _createClass2["default"])(Tabs, [{ key: "init", value: function init()
+
+    {
+      $(".tabs-component").map(function (index, el) {
+        var randomId = Math.ceil(Math.random() * 99999);
+        var uniqueClass = "tabs-".concat(randomId);
+        el.classList.add(uniqueClass);
+        new TabsComponent(uniqueClass);
+      });
+    } }]);return Tabs;}();exports["default"] = Tabs;
+
+},{"../vendor/tabs.min":21,"@babel/runtime/helpers/classCallCheck":24,"@babel/runtime/helpers/createClass":25,"@babel/runtime/helpers/interopRequireDefault":26}],15:[function(require,module,exports){
 "use strict";var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports, "__esModule", { value: true });exports["default"] = void 0;var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));var Topics = /*#__PURE__*/function () {
   function Topics() {(0, _classCallCheck2["default"])(this, Topics);
     this.topicsCarousel = $(".topics-carousel");
@@ -1067,7 +1396,7 @@ PopularAd = /*#__PURE__*/function () {
       this.topicsCarousel.slick(options);
     } }]);return Topics;}();exports["default"] = Topics;
 
-},{"@babel/runtime/helpers/classCallCheck":21,"@babel/runtime/helpers/createClass":22,"@babel/runtime/helpers/interopRequireDefault":23}],14:[function(require,module,exports){
+},{"@babel/runtime/helpers/classCallCheck":24,"@babel/runtime/helpers/createClass":25,"@babel/runtime/helpers/interopRequireDefault":26}],16:[function(require,module,exports){
 "use strict";var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports, "__esModule", { value: true });exports["default"] = void 0;var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));var _richSlick = _interopRequireDefault(require("../vendor/rich-slick.min"));var
 
 Video = /*#__PURE__*/function () {
@@ -1079,7 +1408,7 @@ Video = /*#__PURE__*/function () {
       window.richSlick = _richSlick["default"];
     } }]);return Video;}();exports["default"] = Video;
 
-},{"../vendor/rich-slick.min":18,"@babel/runtime/helpers/classCallCheck":21,"@babel/runtime/helpers/createClass":22,"@babel/runtime/helpers/interopRequireDefault":23}],15:[function(require,module,exports){
+},{"../vendor/rich-slick.min":20,"@babel/runtime/helpers/classCallCheck":24,"@babel/runtime/helpers/createClass":25,"@babel/runtime/helpers/interopRequireDefault":26}],17:[function(require,module,exports){
 "use strict";var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports, "__esModule", { value: true });exports["default"] = void 0;var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));var WebsiteShare = /*#__PURE__*/function () {
   function WebsiteShare() {(0, _classCallCheck2["default"])(this, WebsiteShare);
     this.shareBox = $(".share-wrapper");
@@ -1141,14 +1470,14 @@ Video = /*#__PURE__*/function () {
       });
     } }]);return WebsiteShare;}();exports["default"] = WebsiteShare;
 
-},{"@babel/runtime/helpers/classCallCheck":21,"@babel/runtime/helpers/createClass":22,"@babel/runtime/helpers/interopRequireDefault":23}],16:[function(require,module,exports){
+},{"@babel/runtime/helpers/classCallCheck":24,"@babel/runtime/helpers/createClass":25,"@babel/runtime/helpers/interopRequireDefault":26}],18:[function(require,module,exports){
 "use strict";var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");var _typeof2 = _interopRequireDefault(require("@babel/runtime/helpers/typeof"));!function (e, t) {if ("object" == (typeof exports === "undefined" ? "undefined" : (0, _typeof2["default"])(exports)) && "object" == (typeof module === "undefined" ? "undefined" : (0, _typeof2["default"])(module))) module.exports = t();else if ("function" == typeof define && define.amd) define([], t);else {var n = t();for (var i in n) {("object" == (typeof exports === "undefined" ? "undefined" : (0, _typeof2["default"])(exports)) ? exports : e)[i] = n[i];}}}(window, function () {return function (e) {var t = {};function n(i) {if (t[i]) return t[i].exports;var o = t[i] = { i: i, l: !1, exports: {} };return e[i].call(o.exports, o, o.exports, n), o.l = !0, o.exports;}return n.m = e, n.c = t, n.d = function (e, t, i) {n.o(e, t) || Object.defineProperty(e, t, { enumerable: !0, get: i });}, n.r = function (e) {"undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(e, Symbol.toStringTag, { value: "Module" }), Object.defineProperty(e, "__esModule", { value: !0 });}, n.t = function (e, t) {if (1 & t && (e = n(e)), 8 & t) return e;if (4 & t && "object" == (0, _typeof2["default"])(e) && e && e.__esModule) return e;var i = Object.create(null);if (n.r(i), Object.defineProperty(i, "default", { enumerable: !0, value: e }), 2 & t && "string" != typeof e) for (var o in e) {n.d(i, o, function (t) {return e[t];}.bind(null, o));}return i;}, n.n = function (e) {var t = e && e.__esModule ? function () {return e["default"];} : function () {return e;};return n.d(t, "a", t), t;}, n.o = function (e, t) {return Object.prototype.hasOwnProperty.call(e, t);}, n.p = "/", n(n.s = 2);}([function (e, t) {e.exports = require("jquery");}, function (e, t, n) {"use strict";n.r(t);var i = n(0),o = n.n(i);function r(e, t, n, i) {var o,r = !1,s = 0;function l() {o && clearTimeout(o);}function c() {for (var c = arguments.length, f = new Array(c), u = 0; u < c; u++) {f[u] = arguments[u];}var a = this,p = Date.now() - s;function d() {s = Date.now(), n.apply(a, f);}function h() {o = void 0;}r || (i && !o && d(), l(), void 0 === i && p > e ? d() : !0 !== t && (o = setTimeout(i ? h : d, void 0 === i ? e - p : e)));}return "boolean" != typeof t && (i = n, n = t, t = void 0), c.cancel = function () {l(), r = !0;}, c;}var s = function () {function e(e) {return this.itemClass = "flexible-item", this.$els = o()(e.selector), this.config = e, this.init(), this;}return e.prototype.update = function () {this.setRows();}, e.prototype.init = function () {this.setRows(), this.setStyle(), this.eventHandler();}, e.prototype.setElementsRows = function (e, t, n) {var i = n,o = 0,r = this.getLineHeigh(e);e.removeClass(this.itemClass), e.attr("style", "max-height:9999px;-webkit-line-clamp:999;"), e.outerHeight();var s = Math.round(e.outerHeight() / r);e.addClass(this.itemClass), e.attr("style", ""), s >= n ? (t.hide(), i = n, o = 0) : (t.show(), o = n - (i = s)), e.attr("style", "-webkit-line-clamp:" + i + ";max-height:calc(" + this.getLineHeigh(e, !0) + "em * " + i + ")"), o > 0 && t.attr("style", "-webkit-line-clamp:" + o + ";max-height:calc(" + this.getLineHeigh(t, !0) + "em * " + o + ")");}, e.prototype.getLineHeigh = function (e, t) {void 0 === t && (t = !1);var n = Number(e.css("line-height").replace("px", "")),i = Number(e.css("font-size").replace("px", ""));return Number(t ? (n / i).toFixed(2) : n);}, e.prototype.setRows = function () {var e = this,t = this.getMaxRows();this.$els.map(function (n, i) {var r = e.getTitleElement(o()(i)),s = e.getDescriptionElement(o()(i));e.setDefault(r, s), e.setElementsRows(r, s, t);});}, e.prototype.setDefault = function (e, t) {e.add(t).addClass(this.itemClass);}, e.prototype.getMaxRows = function () {var e = this.config.rows,t = o()(window).width();if (this.config.responsive) {var n = function () {for (var e = 0, t = 0, n = arguments.length; t < n; t++) {e += arguments[t].length;}var i = Array(e),o = 0;for (t = 0; t < n; t++) {for (var r = arguments[t], s = 0, l = r.length; s < l; s++, o++) {i[o] = r[s];}}return i;}(this.config.responsive);n.sort(function (e, t) {return e.rows - t.rows;});for (var i = 0; i < n.length; i++) {t >= n[i].breakpoint && (e = n[i].rows);}}return e;}, e.prototype.getDescriptionElement = function (e) {return this.config.descriptionSelector ? e.find(this.config.descriptionSelector).eq(0) : e.children().eq(1);}, e.prototype.getTitleElement = function (e) {return this.config.titleSelector ? e.find(this.config.titleSelector).eq(0) : e.children().eq(0);}, e.prototype.eventHandler = function () {var e,t,n,i = this,s = (e = 200, t = !1, void 0 === (n = function n() {i.setRows();}) ? r(e, t, !1) : r(e, n, !1 !== t));o()(window).on("resize", function () {s();});}, e.prototype.setStyle = function () {var e = o()("#flexibleDescriptionStyle").length > 0 ? o()("#flexibleDescriptionStyle") : o()("<style/>");e.attr("id", "flexibleDescriptionStyle"), e.html("\n        ." + this.itemClass + "{\n           display: block;\n           display: -webkit-box;\n           overflow: hidden;\n           text-overflow: ellipsis;\n           -webkit-box-orient: vertical;\n        }\n    "), o()("head").append(e);}, e;}();t["default"] = s;}, function (e, t, n) {e.exports = n(1);}]);});
 
-},{"@babel/runtime/helpers/interopRequireDefault":23,"@babel/runtime/helpers/typeof":24,"jquery":25}],17:[function(require,module,exports){
+},{"@babel/runtime/helpers/interopRequireDefault":26,"@babel/runtime/helpers/typeof":27,"jquery":28}],19:[function(require,module,exports){
 "use strict";var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));var _typeof2 = _interopRequireDefault(require("@babel/runtime/helpers/typeof")); /* tag : v1.0.4 */
 !function (t, e) {if ("object" == (typeof exports === "undefined" ? "undefined" : (0, _typeof2["default"])(exports)) && "object" == (typeof module === "undefined" ? "undefined" : (0, _typeof2["default"])(module))) module.exports = e();else if ("function" == typeof define && define.amd) define([], e);else {var i = e();for (var n in i) {("object" == (typeof exports === "undefined" ? "undefined" : (0, _typeof2["default"])(exports)) ? exports : t)[n] = i[n];}}}(window, function () {return function (t) {var e = {};function i(n) {if (e[n]) return e[n].exports;var s = e[n] = { i: n, l: !1, exports: {} };return t[n].call(s.exports, s, s.exports, i), s.l = !0, s.exports;}return i.m = t, i.c = e, i.d = function (t, e, n) {i.o(t, e) || Object.defineProperty(t, e, { enumerable: !0, get: n });}, i.r = function (t) {"undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(t, Symbol.toStringTag, { value: "Module" }), Object.defineProperty(t, "__esModule", { value: !0 });}, i.t = function (t, e) {if (1 & e && (t = i(t)), 8 & e) return t;if (4 & e && "object" == (0, _typeof2["default"])(t) && t && t.__esModule) return t;var n = Object.create(null);if (i.r(n), Object.defineProperty(n, "default", { enumerable: !0, value: t }), 2 & e && "string" != typeof t) for (var s in t) {i.d(n, s, function (e) {return t[e];}.bind(null, s));}return n;}, i.n = function (t) {var e = t && t.__esModule ? function () {return t["default"];} : function () {return t;};return i.d(e, "a", e), e;}, i.o = function (t, e) {return Object.prototype.hasOwnProperty.call(t, e);}, i.p = "/", i(i.s = 11);}([function (t, e) {t.exports = require("jquery");}, function (t, e, i) {"use strict";i.r(e), i.d(e, "default", function () {return r;});var n = i(0),s = i.n(n),o = (i(3), i(2));var l = "slideChange",h = "changeStart",a = "changeEnded";var r = /*#__PURE__*/function () {function r(t) {(0, _classCallCheck2["default"])(this, r);this.config = { el: s()(), min: 0, max: 100, step: 1, value: 50 }, this.isRtl = !1, this.config = Object.assign(this.config, t), this.$el = s()(this.config.el).eq(0), this.$eventEl = s()("<div />"), this.$fill = s()('<div class="range-fill"></div>'), this.$handle = s()('<button class="range-handle"></button>'), this.rangeRectWidth = 0, this.handleRectWidth = 0, this.maxHandleLimitPositionLeft = 0, this.centerOfHandle = 0, this.positionLeft = 0, this.randomClass = "range-" + Math.random().toString().slice(2), this.startEvent = ["mousedown", "touchstart"].join(".".concat(this.randomClass, " ")), this.moveEvent = ["mousemove", "touchmove"].join(".".concat(this.randomClass, " ")), this.endEvent = ["mouseup", "touchend"].join(".".concat(this.randomClass, " ")), this.lastValue = -1, this.init();}(0, _createClass2["default"])(r, [{ key: "init", value: function init() {this.isRtl = "rtl" === document.dir, this.isRtl && this.$el.addClass("rtl"), this.$el.addClass("range").addClass(this.randomClass), this.$el.append(this.$fill, this.$handle), this.update_rect(), this.set_position_left(), this.event_handle();} }, { key: "set_value", value: function set_value(t) {var e = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : !1;return t = e ? t * this.config.max : t, this.update_rect(), this.set_position_left(this.get_position_left_by_value(t), !1, !0), this;} }, { key: "destroy", value: function destroy() {this.$eventEl.trigger("beforeDestroy"), this.$el.removeClass("range").removeClass(this.randomClass), this.$el.html(""), this.$el = s()(), this.$eventEl = s()(), this.$fill = s()(), this.$handle = s()(), s()(document).off(this.startEvent), s()(window).off("resize." + this.randomClass);} }, { key: "on", value: function on(t, e) {return this.$eventEl.on(t, e), this;} }, { key: "one", value: function one(t, e) {return this.$eventEl.one(t, e), this;} }, { key: "off", value: function off(t) {return this.$eventEl.off(t), this;} }, { key: "event_handle", value: function event_handle() {var _this = this;s()(document).on(this.startEvent, "." + this.randomClass, function (t) {return _this.$eventEl.trigger(h) && _this.on_start_event_handle(t);}), s()(window).on("resize." + this.randomClass, Object(o.debounce)(this.on_resize.bind(this), 200));} }, { key: "on_resize", value: function on_resize() {this.update_rect(), this.set_position_left(this.positionLeft, !0);} }, { key: "on_start_event_handle", value: function on_start_event_handle(t) {var _this2 = this;t.preventDefault(), this.on_move_event_handle(t), s()(document).on(this.moveEvent, function (t) {return _this2.on_move_event_handle(t);}).on(this.endEvent, function (t) {_this2.$eventEl.trigger(a), _this2.lastValue = -1, _this2.on_move_event_handle(t), _this2.on_end_event_handle(t);});} }, { key: "on_move_event_handle", value: function on_move_event_handle(t) {var e = this.$el.offset().left,i = t.clientX;if (!i) {if (!(t.originalEvent.touches && t.originalEvent.touches.length > 0)) return;i = t.originalEvent.touches[0].clientX;}var n = i - e - this.centerOfHandle;this.isRtl && (n = this.$el.outerWidth() - n - this.centerOfHandle), this.set_position_left(n);} }, { key: "on_end_event_handle", value: function on_end_event_handle(t) {t.preventDefault(), s()(document).off(this.moveEvent).off(this.endEvent);} }, { key: "set_position_left", value: function set_position_left() {var t = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.positionLeft;var e = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : !1;var i = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : !1;t = Math.min(Math.max(0, t), this.maxHandleLimitPositionLeft), this.config.value = e ? this.lastValue : this.get_value_by_position_left(t), this.positionLeft = t = this.get_position_left_by_value(this.config.value), (this.lastValue !== this.config.value || e) && (this.lastValue = this.config.value, this.$fill.css("width", t), this.$handle.css(this.isRtl ? "right" : "left", t), !e && this.$eventEl.trigger(l, [this.config.value, +(this.config.value / this.config.max).toFixed(4), i]));} }, { key: "update_rect", value: function update_rect() {this.rangeRectWidth = this.$el.outerWidth(), this.handleRectWidth = this.$handle.outerWidth(), this.maxHandleLimitPositionLeft = this.rangeRectWidth - this.handleRectWidth, this.centerOfHandle = this.handleRectWidth / 2, this.positionLeft = this.get_position_left_by_value(this.config.value);} }, { key: "get_position_left_by_value", value: function get_position_left_by_value(t) {var e = (t - this.config.min) / (this.config.max - this.config.min);return isNaN(e) || e < 0 ? 0 : this.maxHandleLimitPositionLeft * e;} }, { key: "get_value_by_position_left", value: function get_value_by_position_left(t) {var e = t / this.maxHandleLimitPositionLeft;return Math.trunc(this.config.step * Math.round(e * (this.config.max - this.config.min) / this.config.step) + this.config.min);} }]);return r;}();}, function (t, e) {function i(t, e, i) {var n, s, o, l, h;function a() {var r = Date.now() - l;r < e && r >= 0 ? n = setTimeout(a, e - r) : (n = null, i || (h = t.apply(o, s), o = s = null));}null == e && (e = 100);var r = function r() {o = this, s = arguments, l = Date.now();var r = i && !n;return n || (n = setTimeout(a, e)), r && (h = t.apply(o, s), o = s = null), h;};return r.clear = function () {n && (clearTimeout(n), n = null);}, r.flush = function () {n && (h = t.apply(o, s), o = s = null, clearTimeout(n), n = null);}, r;}i.debounce = i, t.exports = i;}, function (t, e, i) {},,,,,,,, function (t, e, i) {t.exports = i(1);}]);});
 
-},{"@babel/runtime/helpers/classCallCheck":21,"@babel/runtime/helpers/createClass":22,"@babel/runtime/helpers/interopRequireDefault":23,"@babel/runtime/helpers/typeof":24,"jquery":25}],18:[function(require,module,exports){
+},{"@babel/runtime/helpers/classCallCheck":24,"@babel/runtime/helpers/createClass":25,"@babel/runtime/helpers/interopRequireDefault":26,"@babel/runtime/helpers/typeof":27,"jquery":28}],20:[function(require,module,exports){
 "use strict";var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");var _typeof2 = _interopRequireDefault(require("@babel/runtime/helpers/typeof"));!function (t, n) {if ("object" == (typeof exports === "undefined" ? "undefined" : (0, _typeof2["default"])(exports)) && "object" == (typeof module === "undefined" ? "undefined" : (0, _typeof2["default"])(module))) module.exports = n();else if ("function" == typeof define && define.amd) define([], n);else {var i = n();for (var e in i) {("object" == (typeof exports === "undefined" ? "undefined" : (0, _typeof2["default"])(exports)) ? exports : t)[e] = i[e];}}}(window, function () {return function (t) {var n = {};function i(e) {if (n[e]) return n[e].exports;var r = n[e] = { i: e, l: !1, exports: {} };return t[e].call(r.exports, r, r.exports, i), r.l = !0, r.exports;}return i.m = t, i.c = n, i.d = function (t, n, e) {i.o(t, n) || Object.defineProperty(t, n, { enumerable: !0, get: e });}, i.r = function (t) {"undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(t, Symbol.toStringTag, { value: "Module" }), Object.defineProperty(t, "__esModule", { value: !0 });}, i.t = function (t, n) {if (1 & n && (t = i(t)), 8 & n) return t;if (4 & n && "object" == (0, _typeof2["default"])(t) && t && t.__esModule) return t;var e = Object.create(null);if (i.r(e), Object.defineProperty(e, "default", { enumerable: !0, value: t }), 2 & n && "string" != typeof t) for (var r in t) {i.d(e, r, function (n) {return t[n];}.bind(null, r));}return e;}, i.n = function (t) {var n = t && t.__esModule ? function () {return t["default"];} : function () {return t;};return i.d(n, "a", n), n;}, i.o = function (t, n) {return Object.prototype.hasOwnProperty.call(t, n);}, i.p = "/", i(i.s = 3);}([function (t, n, i) {"use strict";i.r(n);
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
@@ -1166,10 +1495,13 @@ Video = /*#__PURE__*/function () {
     ***************************************************************************** */
     var _e = function e(t, n) {return (_e = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (t, n) {t.__proto__ = n;} || function (t, n) {for (var i in n) {n.hasOwnProperty(i) && (t[i] = n[i]);}})(t, n);};function r(t, n) {function i() {this.constructor = t;}_e(t, n), t.prototype = null === n ? Object.create(n) : (i.prototype = n.prototype, new i());}function o() {for (var t = 0, n = 0, i = arguments.length; n < i; n++) {t += arguments[n].length;}var e = Array(t),r = 0;for (n = 0; n < i; n++) {for (var o = arguments[n], s = 0, l = o.length; s < l; s++, r++) {e[r] = o[s];}}return e;}function s(t, n, i, e) {var r,o = !1,s = 0;function l() {r && clearTimeout(r);}function a() {for (var a = arguments.length, c = new Array(a), d = 0; d < a; d++) {c[d] = arguments[d];}var u = this,f = Date.now() - s;function v() {s = Date.now(), i.apply(u, c);}function h() {r = void 0;}o || (e && !r && v(), l(), void 0 === e && f > t ? v() : !0 !== n && (r = setTimeout(e ? h : v, void 0 === e ? t - f : t)));}return "boolean" != typeof n && (e = i, i = n, n = void 0), a.cancel = function () {l(), o = !0;}, a;}var l = function () {function t(t, n) {this.newData = this.resetData(t, n), this.HTML = this.render(this.newData, n);}return t.prototype.sliceArray = function (t, n) {for (var i = [], e = 0; e < t.length; e += n) {i.push(t.slice(e, e + n));}return i;}, t;}(),a = function (t) {function n() {return null !== t && t.apply(this, arguments) || this;}return r(n, t), n.prototype.render = function (t, n) {var i = this,e = "";return t.map(function (r, o) {e += '\n        <div class="rich-slick-item default ' + (n.isFreeToScroll ? "is-free-to-scroll-box" : "") + '">\n          <div class="row">\n            ' + i.getListHtml(r, n, t) + "\n          </div>\n        </div>\n      ";}), e;}, n.prototype.getListHtml = function (t, n, i) {var e = this,r = "";if (t.map(function (t) {var i = t.attach ? '<div class="attach">' + t.attach + "</div>" : "";r += "\n        " + e.getDomBoxHtml(n) + '\n           <div class="rich-slick-card">\n            <div class="cover">\n              <a href="' + t.url + '">\n                <img src="' + t.cover + '">\n              </a>  \n              <span class="duration">' + t.duration + '</span>  \n            </div>\n            <div class="card-body">\n              <div class="meta">\n                <div class="title">\n                  <a href="' + t.url + '">\n                     ' + t.title + "\n                  </a>\n                </div>\n              </div>\n              " + i + "\n            </div>\n          </div>\n        </div>\n      ";}), n.isShowMore && i.indexOf(t) === i.length - 1) if (t.length < n.imageTotalPerItem) r += this.getDomBoxHtml(n, !0) + "</div>";else {var o = $("<div/>");o.html(r), o.find(".rich-slick-card").last().parent().html(this.getDomBoxHtml(n, !0) + "</div>"), r = o.html();}return r;}, n.prototype.getDomBoxHtml = function (t, n) {void 0 === n && (n = !1);var i = "";if (t.isFreeToScroll) {var e = t.width ? t.width : 230;i = '<div class="is-free-to-scroll ' + (n ? "is-show-more" : "") + '" style="width:' + ("number" == typeof e ? e + "px" : e) + '">';} else i = '<div class="col-' + t.col + " " + (n ? "is-show-more" : "") + '">';return i;}, n.prototype.resetData = function (t, n) {var i,e = n.isFreeToScroll ? 999 : null !== (i = n.imageTotalPerItem) && void 0 !== i ? i : 4;return this.sliceArray(t, e);}, n;}(l),c = function (t) {function n() {return null !== t && t.apply(this, arguments) || this;}return r(n, t), n.prototype.render = function (t, n) {var i = this,e = "";return t.map(function (t) {e += '\n       <div class="rich-slick-item layout-1">\n          <div class="row">\n            <div class="col-6 left">\n              <div class="rich-slick-card">\n                <div class="cover">\n                  <a href="' + t.left.url + '">\n                    <img src="' + t.left.cover + '">\n                  </a>\n                  <span class="duration">' + t.left.duration + '</span>  \n                </div>\n                <div class="card-body">\n                  <div class="meta">\n                    <div class="title">\n                      <a href="' + t.left.url + '">\n                         ' + t.left.title + '\n                      </a>\n                    </div>\n                    <p class="description">\n                      ' + t.left.description + '\n                    </p>\n                  </div>\n                </div>\n              </div>\n            </div>\n            <div class="col-6 right">\n                ' + i.getRightDomHtml(t.right) + "\n            </div>\n          </div>\n       </div>\n    ";}), e;}, n.prototype.getRightDomHtml = function (t) {var n = '<div class="row">';return t.map(function (t) {n += '\n        <div class="col-6">\n           <div class="rich-slick-card">\n            <div class="cover">\n              <a href="' + t.url + '">\n                <img src="' + t.cover + '">\n              </a>  \n              <span class="duration">' + t.duration + '</span>  \n            </div>\n            <div class="card-body">\n              <div class="meta">\n                <div class="title">\n                  <a href="' + t.url + '">\n                     ' + t.title + "\n                  </a>\n                </div>\n              </div>\n            </div>\n          </div>\n        </div>\n      ";}), n += "</div>";}, n.prototype.resetData = function (t, n) {var i,e = this.sliceArray(t, null !== (i = n.imageTotalPerItem) && void 0 !== i ? i : 5),r = [];return e.map(function (t) {r.push({ left: t[0], right: o(t.slice(1)) });}), r;}, n;}(l),d = function (t) {function n() {return null !== t && t.apply(this, arguments) || this;}return r(n, t), n.prototype.render = function (t, n) {var i = this,e = "";return t.map(function (t) {e += '\n       <div class="rich-slick-item layout-2">\n          <div class="row">\n            <div class="col-8 left">\n              <div class="rich-slick-card">\n                <div class="cover">\n                  <a href="' + t.left.url + '">\n                    <img src="' + t.left.cover + '">\n                  </a>\n                  <span class="duration">' + t.left.duration + '</span>  \n                </div>\n                <div class="card-body">\n                  <div class="meta">\n                    <div class="title">\n                      <a href="' + t.left.url + '">\n                         ' + t.left.title + '\n                      </a>\n                    </div>\n                    <p class="description">\n                      ' + t.left.description + '\n                    </p>\n                  </div>\n                </div>\n              </div>\n            </div>\n            <div class="col-4 right">\n                ' + i.getRightDomHtml(t.right) + "\n            </div>\n          </div>\n       </div>\n    ";}), e;}, n.prototype.getRightDomHtml = function (t) {var n = '<div class="row">';return t.map(function (t) {n += '\n        <div class="col-12">\n           <div class="rich-slick-card">\n            <div class="cover">\n              <a href="' + t.url + '">\n                <img src="' + t.cover + '">\n              </a>  \n              <span class="duration">' + t.duration + '</span>  \n            </div>\n            <div class="card-body">\n              <div class="meta">\n                <div class="title">\n                  <a href="' + t.url + '">\n                     ' + t.title + "\n                  </a>\n                </div>\n              </div>\n            </div>\n          </div>\n        </div>\n      ";}), n += "</div>";}, n.prototype.resetData = function (t, n) {var i,e = this.sliceArray(t, null !== (i = n.imageTotalPerItem) && void 0 !== i ? i : 3),r = [];return e.map(function (t) {r.push({ left: t[0], right: o(t.slice(1)) });}), r;}, n;}(l),u = function (t) {function n() {return null !== t && t.apply(this, arguments) || this;}return r(n, t), n.prototype.render = function (t, n) {var i = this,e = "";return t.map(function (t) {e += '\n       <div class="rich-slick-item layout-3">\n          <div class="row">\n            <div class="col-12 top">\n              <div class="rich-slick-card">\n                <div class="cover">\n                  <a href="' + t.top.url + '">\n                    <img src="' + t.top.cover + '">\n                  </a>\n                  <span class="duration">' + t.top.duration + '</span>  \n                </div>\n                <div class="card-body">\n                  <div class="meta">\n                    <div class="title">\n                      <a href="' + t.top.url + '">\n                         ' + t.top.title + '\n                      </a>\n                    </div>\n                  </div>\n                </div>\n              </div>\n            </div>\n            <div class="col-12 bottom">\n                ' + i.getRightDomHtml(t.bottom) + "\n            </div>\n          </div>\n       </div>\n    ";}), e;}, n.prototype.getRightDomHtml = function (t) {var n = '<div class="row">';return t.map(function (t) {n += '\n        <div class="col-12">\n           <div class="rich-slick-card">\n            <div class="row">\n              <div class="col-6">\n                <div class="cover">\n                  <a href="' + t.url + '">\n                    <img src="' + t.cover + '">\n                  </a>  \n                  <span class="duration">' + t.duration + '</span>  \n                </div>\n              </div>\n              <div class="col-6">\n               <div class="card-body">\n                  <div class="meta">\n                    <div class="title">\n                      <a href="' + t.url + '">\n                         ' + t.title + "\n                      </a>\n                    </div>\n                  </div>\n               </div>\n              </div>\n            </div>\n          </div>\n        </div>\n      ";}), n += "</div>";}, n.prototype.resetData = function (t, n) {var i,e = this.sliceArray(t, null !== (i = n.imageTotalPerItem) && void 0 !== i ? i : 3),r = [];return e.map(function (t) {r.push({ top: t[0], bottom: o(t.slice(1)) });}), r;}, n;}(l),f = { "default": function _default(t, n) {return new a(t, n).HTML;}, "layout-1": function layout1(t, n) {return new c(t, n).HTML;}, "layout-2": function layout2(t, n) {return new d(t, n).HTML;}, "layout-3": function layout3(t, n) {return new u(t, n).HTML;} },v = function () {function t(t) {this.$el = $(), this.$template = $(), this.oldConfig = "", this.config = { selector: "", templateSelector: "", layout: null, responsive: null, data: null, keyMap: { title: "title", duration: "duration", url: "url", cover: "cover", description: "description", attach: "attach" }, slick: {}, slickConfigReplace: $.noop, isInit: !0, showMoreHTML: "显示更多" }, this.slickConfig = { infinite: !1, slidesToShow: 1, slidesToScroll: 1 }, this.config = $.extend({}, this.config, t), this.conditionCheck() && (this.$el = $(this.config.selector), this.$template = this.$el.find(this.config.templateSelector), this.config.isInit && this.init());}return t.prototype.init = function () {this.config.templateSelector.length > 0 && (this.config.data = this.getDataFromTemplate(), this.$template.remove()), this.render(), this.eventHandler();}, t.prototype.update = function () {this.render(!0);}, t.prototype.eventHandler = function () {var t,n,i,e = this,r = (t = 200, n = !1, void 0 === (i = function i() {return e.render();}) ? s(t, n, !1) : s(t, i, !1 !== n));$(window).on("resize", function () {return r();});}, t.prototype.render = function (t) {void 0 === t && (t = !1);var n = this.getLayoutConfig();if (JSON.stringify(n) !== this.oldConfig || t) {var i = this.getDomHtmlFromLayout(n);this.$el.hasClass("slick-initialized") && this.$el.slick("unslick"), this.$el.html(i), this.handlerIsShowMore(n), this.oldConfig = JSON.stringify(n), this.slickHandler(n);}}, t.prototype.slickHandler = function (t) {this.slickConfig = Object.assign({}, this.slickConfig, this.config.slick);var n = this.config.slickConfigReplace(this.slickConfig);this.slickConfig = n || this.slickConfig, t.isFreeToScroll || this.$el.slick(this.slickConfig);}, t.prototype.handlerIsShowMore = function (t) {t.isShowMore ? this.$el.find(".is-show-more").html(this.config.showMoreHTML) : this.$el.find(".is-show-more").remove();}, t.prototype.getDomHtmlFromLayout = function (t) {var n = JSON.parse(JSON.stringify(this.config.data));if (n = this.getDataFromKeymap(n), t.total && (n = n.slice(0, t.total)), !f[t.name]) throw new Error("rich-slick: 无法找到对应布局 " + t.name);return f[t.name](n, t);}, t.prototype.getDataFromKeymap = function (t) {var n = [],i = this.config.keyMap;return t.map(function (t) {n.push({ title: t[i.title], duration: t[i.duration], url: t[i.url], cover: t[i.cover], description: t[i.description], attach: t[i.attach] });}), n;}, t.prototype.getLayoutConfig = function () {if (this.config.responsive && this.config.responsive.length > 0) {var t = $(window).width(),n = null,i = o(this.config.responsive);i.sort(function (t, n) {return t.breakpoint - n.breakpoint;});for (var e = 0; e < i.length; e++) {t >= i[e].breakpoint && (n = i[e].config);}if (!n && !this.config.layout) throw new Error("rich-slick: 无法当前浏览器尺寸对应的配置");return n || this.config.layout;}return this.config.layout;}, t.prototype.getDataFromTemplate = function () {var t = [],n = $("<section />");return n.html(this.$template.html()), n.children().map(function (n, i) {var e = $(i);t.push({ title: e.find(".title").html(), duration: e.find(".duration").html(), url: e.find(".url").html(), cover: e.find(".cover").html(), description: e.find(".description").html(), attach: e.find(".attach").html().trim() });}), t;}, t.prototype.conditionCheck = function () {if (0 === this.config.selector.length) throw new Error("rich-slick: 必须要传入selector");if (!this.config.data && 0 === this.config.templateSelector.length) throw new Error("rich-slick: data与模板selector必须传入一个");if (!this.config.layout && !this.config.responsive) throw new Error("rich-slick: layout布局 和 自适应必须传入一个");return !0;}, t;}();n["default"] = v;},,, function (t, n, i) {t.exports = i(0);}]);});
 
-},{"@babel/runtime/helpers/interopRequireDefault":23,"@babel/runtime/helpers/typeof":24}],19:[function(require,module,exports){
+},{"@babel/runtime/helpers/interopRequireDefault":26,"@babel/runtime/helpers/typeof":27}],21:[function(require,module,exports){
+"use strict";var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");var _typeof2 = _interopRequireDefault(require("@babel/runtime/helpers/typeof"));!function (t, e) {"object" == (typeof exports === "undefined" ? "undefined" : (0, _typeof2["default"])(exports)) && "object" == (typeof module === "undefined" ? "undefined" : (0, _typeof2["default"])(module)) ? module.exports = e(require("jquery")) : "function" == typeof define && define.amd ? define([], e) : "object" == (typeof exports === "undefined" ? "undefined" : (0, _typeof2["default"])(exports)) ? exports.Tabs = e(require("jquery")) : t.Tabs = e(t.jQuery);}(window, function (t) {return function (t) {var e = {};function i(n) {if (e[n]) return e[n].exports;var o = e[n] = { i: n, l: !1, exports: {} };return t[n].call(o.exports, o, o.exports, i), o.l = !0, o.exports;}return i.m = t, i.c = e, i.d = function (t, e, n) {i.o(t, e) || Object.defineProperty(t, e, { enumerable: !0, get: n });}, i.r = function (t) {"undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(t, Symbol.toStringTag, { value: "Module" }), Object.defineProperty(t, "__esModule", { value: !0 });}, i.t = function (t, e) {if (1 & e && (t = i(t)), 8 & e) return t;if (4 & e && "object" == (0, _typeof2["default"])(t) && t && t.__esModule) return t;var n = Object.create(null);if (i.r(n), Object.defineProperty(n, "default", { enumerable: !0, value: t }), 2 & e && "string" != typeof t) for (var o in t) {i.d(n, o, function (e) {return t[e];}.bind(null, o));}return n;}, i.n = function (t) {var e = t && t.__esModule ? function () {return t["default"];} : function () {return t;};return i.d(e, "a", e), e;}, i.o = function (t, e) {return Object.prototype.hasOwnProperty.call(t, e);}, i.p = "/", i(i.s = 9);}([function (e, i) {e.exports = t;}, function (t, e, i) {"use strict";i.r(e), i.d(e, "get_scroll_left", function () {return l;}), i.d(e, "set_scroll_left", function () {return s;}), i.d(e, "detect_is_reverse_scroll", function () {return r;});var n = i(0),o = i.n(n),r = function r() {if (window.scrollType) return window.scrollType;var t = o()('<div dir="rtl" style="font-size: 14px; width: 1px; height: 1px; position: absolute; top: -1000px; overflow: scroll">A</div>').appendTo("body")[0],e = "reverse";return t.scrollLeft > 0 ? e = "default" : (t.scrollLeft = 1, 0 === t.scrollLeft && (e = "negative")), o()(t).remove(), window.scrollType = e, e;},l = function l(t) {var e = t.scrollLeft(),i = r();return window.__isRtl ? "negative" === i ? e + t.get(0).scrollWidth - t.get(0).clientWidth : "reverse" === i ? t.get(0).scrollWidth - e - t.get(0).clientWidth : e : e;},s = function s(t, e, i) {void 0 === i && (i = !1);var n = r();if (!window.__isRtl) {if (i) return e;t.scrollLeft(e);}if ("negative" === n && (e = e + t.get(0).clientWidth - t.get(0).scrollWidth), "reverse" === n && (e = t.get(0).scrollWidth - t.get(0).clientWidth - e), i) return e;t.scrollLeft(e);};}, function (t, e) {function i(t, e, i) {var n, o, r, l, s;function c() {var a = Date.now() - l;a < e && a >= 0 ? n = setTimeout(c, e - a) : (n = null, i || (s = t.apply(r, o), r = o = null));}null == e && (e = 100);var a = function a() {r = this, o = arguments, l = Date.now();var a = i && !n;return n || (n = setTimeout(c, e)), a && (s = t.apply(r, o), r = o = null), s;};return a.clear = function () {n && (clearTimeout(n), n = null);}, a.flush = function () {n && (s = t.apply(r, o), r = o = null, clearTimeout(n), n = null);}, a;}i.debounce = i, t.exports = i;}, function (t, e, i) {"use strict";i.r(e);var n = i(0),o = i.n(n),r = i(2),l = (i(4), i(1)),s = "change",c = "expandMoreBtnClick",a = "destroy",u = function () {function t(t) {this.config = { el: "", infinity: !0, index: 0 }, this.$el = o()(), this.$eventEl = o()("<div />"), this.lastIndex = -1, this.randomString = "tabs-" + Math.ceil(1e6 * Math.random()), this.isRtl = "rtl" === document.dir, window.__isRtl = this.isRtl, this.config = o.a.extend({}, this.config, t), this.$el = o()(this.config.el), this.$el.addClass(this.randomString), this.init();}return t.prototype.init = function () {this.DOM_init(), this.event_handle(), this.overflow_handle(), this.go(this.config.index, !0);}, t.prototype.update = function () {this.on_resize();}, t.prototype.go = function (t, e) {void 0 === e && (e = !1);var i = this.$el.find("ul li").eq(t);if (0 === i.length) return this;if (i.hasClass("current")) return this;var n = i.offset().left,o = i.position().left,r = i.parent().offset().left,c = Object(l.get_scroll_left)(i.parent()),a = i.parent().outerWidth();if (i.addClass("current").siblings().removeClass("current"), this.$eventEl.trigger(s, [t, this.lastIndex]), this.$el.hasClass("tabs-overflow") && (o + i.outerWidth() > a && (e = !0), o <= 58 && (e = !0)), e) {var u = 0;this.isRtl, u = n - r + c, u -= 58, this.isRtl ? Object(l.set_scroll_left)(i.parent(), u) : i.parent().scrollLeft(0 === t ? 0 : u), this.overflow_handle();}return this.indicator_animate(t), this.on_scroll(), this;}, t.prototype.next = function () {var t = this.$el.find("li.current").next();return t.data("index") ? this.go(t.data("index")) : this.config.infinity && this.go(0), this;}, t.prototype.prev = function () {var t = this.$el.find("li.current").prev("li");return t.length > 0 ? this.go(t.data("index")) : this.config.infinity && this.go(this.$el.find("ul li").length - 1), this;}, t.prototype.destroy = function () {this.$eventEl.trigger(a), o()(window).off("resize." + this.randomString), this.$el = o()(), this.$eventEl.remove();}, t.prototype.on = function (t, e) {return this.$eventEl.on(t, e), this;}, t.prototype.one = function (t, e) {return this.$eventEl.one(t, e), this;}, t.prototype.off = function (t) {return this.$eventEl.off(t), this;}, t.prototype.overflow_handle = function () {var t = this.$el.find("ul").eq(0),e = t.get(0).scrollWidth;t.get(0).clientWidth < e - 1 ? this.$el.addClass("tabs-overflow") : this.$el.removeClass("tabs-overflow");}, t.prototype.indicator_animate = function (t, e) {void 0 === e && (e = !0), t = t || 0 === t ? t : this.$el.find("li.current").eq(0).data("index");var i = 300,n = 420;e || (i = 0, n = 0);var o = this.$el.find("ul li").eq(t),r = this.$el.find("ul").eq(0),s = this.$el.find(".indicator"),c = this.lastIndex - t > 0;this.lastIndex = t;var a = r.outerWidth(),u = Object(l.get_scroll_left)(r),f = o.outerWidth(),d = o.position().left + u,h = a - d - f;if (this.isRtl) {var p = r.get(0).scrollWidth - u - a,v = a - o.position().left - f + p,g = parseInt(o.css("margin-left"));d = o.position().left - p + g, h = v - g, c = !c;}if (d += 18, h += 18, "my-MM" === document.documentElement.lang && (h += 2), a - d - h < 36) {var _ = (36 - (a - d - h)) / 2;d -= _, h -= _;}s.animate({ left: d }, { queue: !1, duration: c ? i : n }), s.animate({ right: h }, { queue: !1, duration: c ? n : i });}, t.prototype.on_scroll = function () {var t = this.$el.find("ul"),e = Object(l.get_scroll_left)(t),i = t.outerWidth();this.isRtl ? e <= 1 ? this.$el.addClass("scrolled-right") : this.$el.removeClass("scrolled-right") : Math.ceil(e + i) >= t.get(0).scrollWidth ? this.$el.addClass("scrolled-right") : this.$el.removeClass("scrolled-right"), this.isRtl ? Math.ceil(e + i) >= t.get(0).scrollWidth ? this.$el.addClass("scrolled-left") : this.$el.removeClass("scrolled-left") : e < 1 ? this.$el.addClass("scrolled-left") : this.$el.removeClass("scrolled-left");}, t.prototype.event_handle = function () {var t = this;this.$el.find("ul li").on("click", function (e) {return t.go(+e.currentTarget.dataset.index);}), this.$el.find("ul").on("scroll", Object(r.debounce)(this.on_scroll.bind(this), 200)), this.$el.find(".overflow-arrow").on("click", function (e) {return t.on_overflow_arrow_click(e.currentTarget.classList.contains("left"));}), this.$el.find(".tabs-modal-btn").on("click", function () {var e = [];t.$el.find("ul li").map(function (t, i) {e.push({ current: i.classList.contains("current"), html: i.innerHTML, index: t });}), t.$eventEl.trigger(c, [e]);}), o()(window).on("resize." + this.randomString, Object(r.debounce)(this.on_resize.bind(this), 200));}, t.prototype.on_resize = function () {this.indicator_animate(void 0, !1), this.overflow_handle(), this.on_scroll();}, t.prototype.on_overflow_arrow_click = function (t) {var e = this,i = Object(l.get_scroll_left)(this.$el.find("ul")),n = t ? i - 200 : i + 200;n < 100 && (n = 0), this.isRtl && (n = t ? i + 200 : i - 200), this.$el.find("ul").animate({ scrollLeft: Object(l.set_scroll_left)(this.$el.find("ul"), n, !0) }, 120, function () {return e.indicator_animate(void 0, !1);});}, t.prototype.DOM_init = function () {this.$el.find("ul").append('<div class="indicator"></div>'), this.$el.find("ul li").map(function (t, e) {return e.dataset.index = t.toString();}), this.$el.append('<button class="btn btn-icon overflow-arrow left"><i class="icon-navigate-before"></i></button>'), this.$el.append('<button class="btn btn-icon overflow-arrow right"><i class="icon-navigate-next"></i></button>'), this.$el.append('<button class="btn btn-icon tabs-modal-btn"><i class="icon-expand-more"></i></button>');}, t;}();e["default"] = u;}, function (t, e, i) {},,,,, function (t, e, i) {t.exports = i(3);}]);});
+
+},{"@babel/runtime/helpers/interopRequireDefault":26,"@babel/runtime/helpers/typeof":27,"jquery":28}],22:[function(require,module,exports){
 "use strict";var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");var _typeof2 = _interopRequireDefault(require("@babel/runtime/helpers/typeof"));!function (t, e) {if ("object" == (typeof exports === "undefined" ? "undefined" : (0, _typeof2["default"])(exports)) && "object" == (typeof module === "undefined" ? "undefined" : (0, _typeof2["default"])(module))) module.exports = e();else if ("function" == typeof define && define.amd) define([], e);else {var i = e();for (var o in i) {("object" == (typeof exports === "undefined" ? "undefined" : (0, _typeof2["default"])(exports)) ? exports : t)[o] = i[o];}}}(window, function () {return function (t) {var e = {};function i(o) {if (e[o]) return e[o].exports;var n = e[o] = { i: o, l: !1, exports: {} };return t[o].call(n.exports, n, n.exports, i), n.l = !0, n.exports;}return i.m = t, i.c = e, i.d = function (t, e, o) {i.o(t, e) || Object.defineProperty(t, e, { enumerable: !0, get: o });}, i.r = function (t) {"undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(t, Symbol.toStringTag, { value: "Module" }), Object.defineProperty(t, "__esModule", { value: !0 });}, i.t = function (t, e) {if (1 & e && (t = i(t)), 8 & e) return t;if (4 & e && "object" == (0, _typeof2["default"])(t) && t && t.__esModule) return t;var o = Object.create(null);if (i.r(o), Object.defineProperty(o, "default", { enumerable: !0, value: t }), 2 & e && "string" != typeof t) for (var n in t) {i.d(o, n, function (e) {return t[e];}.bind(null, n));}return o;}, i.n = function (t) {var e = t && t.__esModule ? function () {return t["default"];} : function () {return t;};return i.d(e, "a", e), e;}, i.o = function (t, e) {return Object.prototype.hasOwnProperty.call(t, e);}, i.p = "/", i(i.s = 11);}({ 0: function _(t, e) {t.exports = require("jquery");}, 1: function _(t, e, i) {"use strict";i.r(e);var o = i(0),n = i.n(o),r = "loadstart",u = "loaded",a = "ended",s = "currentTimeUpdate",l = "mute",c = "unmute",d = "volumeUpdate",h = "pause",p = "play",f = "watcherUpdate",y = "destroy",v = function () {function t(t) {this.config = { src: "", autoPlay: !1, frequency: 200, volume: .5 }, this.$eventEl = n()("<div />"), this.watcher = 0, this.audio = new Audio(), this.canplay = !1, this.firstTimeLoad = !0, this.config = n.a.extend({}, this.config, t), this.lastVolume = this.config.volume, this.init();}return t.prototype.init = function () {this.audio = new Audio(), this.event_handler(), this.load_audio(this.config.src, this.config.autoPlay);}, t.prototype.play = function () {this.canplay && this.audio.paused && this.hack_chrome_autoplay_policy();}, t.prototype.pause = function (t) {void 0 === t && (t = !1), (this.canplay && !this.audio.paused || t) && (this.$eventEl.trigger(h, [this.audio.currentTime, this.audio.duration, this.audio]), window.clearInterval(this.watcher), this.audio.pause());}, t.prototype.toggle_play = function () {this.audio.paused ? this.play() : this.pause();}, t.prototype.mute = function () {this.lastVolume = this.audio.volume, this.audio.volume = 0, this.$eventEl.trigger(l);}, t.prototype.unmute = function () {this.canplay && (this.audio.volume = 0 === this.lastVolume ? .1 : this.lastVolume, this.$eventEl.trigger(c, this.audio.volume));}, t.prototype.toggle_mute = function () {0 === this.audio.volume ? this.unmute() : this.mute();}, t.prototype.load_audio = function (t, e) {var i = this;this.canplay = !1, n()(this.audio).one("canplay", function () {i.canplay = !0, i.$eventEl.trigger(u, [i.audio.currentTime, i.audio.duration]), e && i.hack_chrome_autoplay_policy();}), this.audio.src = t, this.audio.load();}, t.prototype.set_volume = function (t) {this.lastVolume = this.audio.volume, this.audio.volume = t, this.$eventEl.trigger(d, [t]);}, t.prototype.get_volume = function () {return this.audio.volume;}, t.prototype.set_current_time = function (t, e) {void 0 === e && (e = !1), this.canplay && (this.audio.currentTime = e ? Math.floor(this.audio.duration * t) : t, this.$eventEl.trigger(s, [this.audio.currentTime, this.calc_percentage(this.audio.currentTime, this.audio.duration), this.audio]));}, t.prototype.get_current_time = function () {if (this.canplay) return this.audio.currentTime;}, t.prototype.get_duration = function () {return this.audio.duration;}, t.prototype.format_time = function (t) {var e = String("00" + Math.floor(t / 3600)).slice(-2) + ":",i = String("00" + Math.floor(t % 3600 / 60)).slice(-2) + ":",o = String("00" + Math.floor(t % 3600 % 60)).slice(-2);return t > 3600 ? e + i + o : i + o;}, t.prototype.destroy = function () {this.$eventEl.trigger(y), window.clearInterval(this.watcher), this.canplay = !1, this.$eventEl.remove(), this.audio.src = "";}, t.prototype.on = function (t, e) {return this.$eventEl.on(t, e), this;}, t.prototype.one = function (t, e) {return this.$eventEl.one(t, e), this;}, t.prototype.off = function (t) {return this.$eventEl.off(t), this;}, t.prototype.event_handler = function () {var t = this;n()(this.audio).on("loadstart", function () {t.$eventEl.trigger(r);}).on("ended", function () {t.$eventEl.trigger(a);});}, t.prototype.set_watcher_interval = function () {var t = this;window.clearInterval(this.watcher), this.watcher = window.setInterval(function () {t.$eventEl.trigger(f, [t.audio.currentTime, t.calc_percentage(t.audio.currentTime, t.audio.duration), t.audio.duration, t.audio.ended]);}, this.config.frequency);}, t.prototype.set_default_volume = function () {this.firstTimeLoad && (this.set_volume(this.config.volume), this.firstTimeLoad = !1);}, t.prototype.calc_percentage = function (t, e) {return +(parseInt(t) / parseInt(e)).toFixed(4);}, t.prototype.hack_chrome_autoplay_policy = function () {var t = this,e = this.audio.play();void 0 !== e ? e.then(function () {t.set_default_volume(), t.$eventEl.trigger(p, [t.audio]), t.set_watcher_interval();})["catch"](function (e) {t.pause(!0), console.log(e, "vAudio必须要有用户交互才能自动播放, https://developers.google.com/web/updates/2016/03/play-returns-promise");}) : (this.set_default_volume(), this.$eventEl.trigger(p, [this.audio]), this.set_watcher_interval());}, t;}();e["default"] = v;}, 11: function _(t, e, i) {t.exports = i(1);} });});
 
-},{"@babel/runtime/helpers/interopRequireDefault":23,"@babel/runtime/helpers/typeof":24,"jquery":25}],20:[function(require,module,exports){
+},{"@babel/runtime/helpers/interopRequireDefault":26,"@babel/runtime/helpers/typeof":27,"jquery":28}],23:[function(require,module,exports){
 "use strict";var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
 var _cardCarousel = _interopRequireDefault(require("./modules/card-carousel"));
@@ -1184,10 +1516,12 @@ var _formSearch = _interopRequireDefault(require("./modules/form-search"));
 var _topics = _interopRequireDefault(require("./modules/topics"));
 var _commercialPicture = _interopRequireDefault(require("./modules/commercial-picture"));
 var _Lists = _interopRequireDefault(require("./modules/Lists"));
+var _classifyLabel = _interopRequireDefault(require("./modules/classify-label"));
 
 
 var _article = _interopRequireDefault(require("./modules/article"));
 var _video = _interopRequireDefault(require("./modules/video"));
+var _tabs = _interopRequireDefault(require("./modules/tabs"));
 
 
 var _audioPlayer = _interopRequireDefault(require("./modules/audio-player")); /********** Custom Function ***********/ // -- JY
@@ -1206,16 +1540,18 @@ window.addEventListener("load", function () {// -- JY
   new _topics["default"]();
   new _commercialPicture["default"]();
   new _Lists["default"]();
+  new _classifyLabel["default"]();
 
   // -- LH
   new _article["default"]();
   new _video["default"]();
+  new _tabs["default"]();
 
   // -- HN
   new _audioPlayer["default"]();
 });
 
-},{"./modules/Lists":1,"./modules/article":2,"./modules/audio-player":3,"./modules/banner":4,"./modules/card-carousel":5,"./modules/commercial-fn":6,"./modules/commercial-picture":7,"./modules/exhibition-apps":8,"./modules/form-search":9,"./modules/popular-ad":10,"./modules/spare-parts-fn":11,"./modules/subscription":12,"./modules/topics":13,"./modules/video":14,"./modules/website-share":15,"@babel/runtime/helpers/interopRequireDefault":23}],21:[function(require,module,exports){
+},{"./modules/Lists":1,"./modules/article":2,"./modules/audio-player":3,"./modules/banner":4,"./modules/card-carousel":5,"./modules/classify-label":6,"./modules/commercial-fn":7,"./modules/commercial-picture":8,"./modules/exhibition-apps":9,"./modules/form-search":10,"./modules/popular-ad":11,"./modules/spare-parts-fn":12,"./modules/subscription":13,"./modules/tabs":14,"./modules/topics":15,"./modules/video":16,"./modules/website-share":17,"@babel/runtime/helpers/interopRequireDefault":26}],24:[function(require,module,exports){
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
     throw new TypeError("Cannot call a class as a function");
@@ -1223,7 +1559,7 @@ function _classCallCheck(instance, Constructor) {
 }
 
 module.exports = _classCallCheck;
-},{}],22:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 function _defineProperties(target, props) {
   for (var i = 0; i < props.length; i++) {
     var descriptor = props[i];
@@ -1241,7 +1577,7 @@ function _createClass(Constructor, protoProps, staticProps) {
 }
 
 module.exports = _createClass;
-},{}],23:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : {
     "default": obj
@@ -1249,7 +1585,7 @@ function _interopRequireDefault(obj) {
 }
 
 module.exports = _interopRequireDefault;
-},{}],24:[function(require,module,exports){
+},{}],27:[function(require,module,exports){
 function _typeof(obj) {
   "@babel/helpers - typeof";
 
@@ -1267,7 +1603,7 @@ function _typeof(obj) {
 }
 
 module.exports = _typeof;
-},{}],25:[function(require,module,exports){
+},{}],28:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v3.5.1
  * https://jquery.com/
@@ -12141,6 +12477,6 @@ if ( typeof noGlobal === "undefined" ) {
 return jQuery;
 } );
 
-},{}]},{},[20])
+},{}]},{},[23])
 
 //# sourceMappingURL=zq-components.js.map
