@@ -71,45 +71,47 @@
         </script>
       </div>
       <script>
-        let R = new RichSlick({
-          selector: "#target",
-          templateSelector: ".template",
-          responsive: [
-            {
-              breakpoint: 375,
-              config: {
-                name: "layout-3",
-                imageTotalPerItem: 3,
-                total: 3
+        window.addEventListener('app-ready', function () {
+          let R = new window.richSlic({
+            selector: "#target",
+            templateSelector: ".template",
+            responsive: [
+              {
+                breakpoint: 375,
+                config: {
+                  name: "layout-3",
+                  imageTotalPerItem: 3,
+                  total: 3
+                }
+              },
+              {
+                breakpoint: 768,
+                config: {
+                  name: "default",
+                  imageTotalPerItem: 3,
+                  col: 4,
+                  isShowMore: true,
+                  isFreeToScroll: true,
+                  width: 240
+                }
+              },
+              {
+                breakpoint: 998,
+                config: {
+                  name: "layout-2",
+                  imageTotalPerItem: 3
+                }
+              },
+              {
+                breakpoint: 1200,
+                config: {
+                  name: "layout-1",
+                  imageTotalPerItem: 5
+                }
               }
-            },
-            {
-              breakpoint: 768,
-              config: {
-                name: "default",
-                imageTotalPerItem: 3,
-                col: 4,
-                isShowMore: true,
-                isFreeToScroll: true,
-                width: 240
-              }
-            },
-            {
-              breakpoint: 998,
-              config: {
-                name: "layout-2",
-                imageTotalPerItem: 3
-              }
-            },
-            {
-              breakpoint: 1200,
-              config: {
-                name: "layout-1",
-                imageTotalPerItem: 5
-              }
-            }
-          ]
-        });
+            ]
+          });
+        })
       </script>
     </section>
   </div>
@@ -175,6 +177,10 @@
             
             <li class="item"><a href="/pages/article/layout-7.html">
                 <span class="num">2.7</span>排版7 (404页面)</a>
+            </li>
+            
+            <li class="item"><a href="/pages/article/layout-8.html">
+                <span class="num">2.8</span>排版8 (左图右文字)</a>
             </li>
             
           </ul>

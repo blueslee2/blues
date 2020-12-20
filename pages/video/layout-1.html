@@ -56,6 +56,9 @@
     <h1 class="container t-section-title">视频组件 - 布局1</h1>
     <section class="video-box-parent">
       <div class="video-box" id="video-layout-1">
+        <div class="loading">
+          <div class="spinner-border" role="status"></div>
+        </div>
         <script type="text/template" class="template">
           
             <div>
@@ -201,8 +204,7 @@
         </script>
       </div>
       <script>
-        window.addEventListener('load', () => {
-          setTimeout(() => {
+        window.addEventListener('app-ready', function () {
             new window.richSlick({
               selector: `#video-layout-1`,
               templateSelector: ".template",
@@ -236,7 +238,6 @@
                 }
               ]
             })
-          }, 1000)
         })
       </script>
     </section>
@@ -245,6 +246,9 @@
         href="https://gitlab.199101.xyz/front-end/vendor/rich-slick" class="t-light">参考文档</a></p>
     <section class="code-block d-none">
       <div class="video-box" id="video-layout-1">
+        <div class="loading">
+          <div class="spinner-border" role="status"></div>
+        </div>
         <script type="text/template" class="template">
           <div>
             <p class="title">Full 2020 Christian Movie | "Faith in God 3 – Rise, Those Who Would Not Be Slaves!"</p>
@@ -266,40 +270,43 @@
         </script>
       </div>
 
-      <script type="text/template">
-        //  js 调用
-        new window.richSlick({
-          selector: `#video-layout-1`,
-          templateSelector: ".template",
-          showMoreHTML: `<div class="show-more-video"><a href="#"">More Videos <i class="icon-east"></i></a></div>`,
-          responsive: [
-            {
-              breakpoint: 0,
-              config: {
-                name: "default",
-                imageTotalPerItem: 3,
-                col: 12,
-                total: 3
+      <script>
+        window.addEventListener('app-ready', function () {
+          //  使用代码时请去掉下面的return
+          return
+          new window.richSlick({
+            selector: `#video-layout-1`,
+            templateSelector: ".template",
+            showMoreHTML: `<div class="show-more-video"><a href="#"">More Videos <i class="icon-east"></i></a></div>`,
+            responsive: [
+              {
+                breakpoint: 0,
+                config: {
+                  name: "default",
+                  imageTotalPerItem: 3,
+                  col: 12,
+                  total: 3
+                }
+              },
+              {
+                breakpoint: 768,
+                config: {
+                  name: "default",
+                  imageTotalPerItem: 2,
+                  col: 6
+                }
+              },
+              {
+                breakpoint: 992,
+                config: {
+                  name: "default",
+                  imageTotalPerItem: 3,
+                  col: 4,
+                  isShowMore: true
+                }
               }
-            },
-            {
-              breakpoint: 768,
-              config: {
-                name: "default",
-                imageTotalPerItem: 2,
-                col: 6
-              }
-            },
-            {
-              breakpoint: 992,
-              config: {
-                name: "default",
-                imageTotalPerItem: 3,
-                col: 4,
-                isShowMore: true
-              }
-            }
-          ]
+            ]
+          })
         })
       </script>
     </section>
@@ -367,6 +374,10 @@
             
             <li class="item"><a href="/pages/article/layout-7.html">
                 <span class="num">2.7</span>排版7 (404页面)</a>
+            </li>
+            
+            <li class="item"><a href="/pages/article/layout-8.html">
+                <span class="num">2.8</span>排版8 (左图右文字)</a>
             </li>
             
           </ul>
