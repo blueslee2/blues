@@ -1410,7 +1410,6 @@ PopularAd = /*#__PURE__*/function () {
 
     {
       this.showContent();
-      this.setMobileNavText();
       this.$el.addClass("tabs-slick-inited");
       this.eventHandler();
     } }, { key: "eventHandler", value: function eventHandler()
@@ -1419,8 +1418,6 @@ PopularAd = /*#__PURE__*/function () {
       //  监听tab切换
       this.$el.on("change", function (ev, index, lastIndex) {
         _this.showContent(index);
-        //  切换文字
-        _this.setMobileNavText(index);
       });
 
       this.$nav.on("click", function () {
@@ -1459,6 +1456,9 @@ PopularAd = /*#__PURE__*/function () {
       }
 
       $currentContent.addClass("current").siblings().removeClass("current");
+
+      //  切换文字
+      this.setMobileNavText(index);
     }
 
     /**
@@ -1468,8 +1468,8 @@ PopularAd = /*#__PURE__*/function () {
      */ }, { key: "getShowMoreConfig", value: function getShowMoreConfig(
     uniqueClass) {
       var $el = $(".".concat(uniqueClass)).find(".show-more-btn-html");
-      var title = $el.find(".title").html();
-      var link = $el.find(".link").html();
+      var title = $el.find(".title").html().trim();
+      var link = $el.find(".link").html().trim();
       return {
         title: title,
         link: link };
@@ -1482,6 +1482,7 @@ PopularAd = /*#__PURE__*/function () {
      */ }, { key: "initRichSlickPlugin", value: function initRichSlickPlugin(
     uniqueClass) {var _this$getShowMoreConf =
       this.getShowMoreConfig(uniqueClass),title = _this$getShowMoreConf.title,link = _this$getShowMoreConf.link;
+      this.$el.find(".see-more-box a").attr("href", link);
 
       return new window.richSlick({
         selector: ".".concat(uniqueClass),

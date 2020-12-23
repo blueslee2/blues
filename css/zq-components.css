@@ -4125,8 +4125,17 @@ html[dir="rtl"] .modal .modal-box .modal-header .modal-header-close {
 .tabs-slick:not(.tabs-slick-inited) .tabs-slick-content-box .tabs-slick-content:not(:first-of-type) {
   display: none; }
 
+.tabs-slick:not(.tabs-slick-inited) .see-more-box {
+  display: none; }
+
 .tabs-slick * {
   outline: none !important; }
+
+.see-more-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center; }
 
 .tabs-slick-mobile-nav {
   width: 100%;
