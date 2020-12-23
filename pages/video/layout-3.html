@@ -205,52 +205,56 @@
       </div>
       <script>
         window.addEventListener('app-ready', function () {
-            new window.richSlick({
-              selector: `#video-layout-1`,
-              templateSelector: ".template",
-              showMoreHTML: `<div class="show-more-video"><a href="#"">More Videos <i class="icon-east"></i></a></div>`,
-              responsive: [
-                {
-                  breakpoint: 0,
-                  config: {
-                    name: "default",
-                    isFreeToScroll: true,
-                    width: 142
-                  }
-                },
-                {
-                  breakpoint: 370,
-                  config: {
-                    name: "default",
-                    isFreeToScroll: true,
-                    width: 152
-                  }
-                },
-                {
-                  breakpoint: 768,
-                  config: {
-                    name: "default",
-                    isFreeToScroll: true,
-                    width: 188
-                  }
-                },
-                {
-                  breakpoint: 1248,
-                  config: {
-                    name: "default",
-                    imageTotalPerItem: 6,
-                    col: 2,
-                    isShowMore: true
-                  }
+          new window.richSlick({
+            selector: `#video-layout-1`,
+            templateSelector: ".template",
+            showMoreHTML: `<div class="show-more-video"><a href="#"">More Videos <i class="icon-east"></i></a></div>`,
+            responsive: [
+              {
+                breakpoint: 0,
+                config: {
+                  name: "default",
+                  isFreeToScroll: true,
+                  width: 142,
+                  total: 6
                 }
-              ]
-            })
+              },
+              {
+                breakpoint: 370,
+                config: {
+                  name: "default",
+                  isFreeToScroll: true,
+                  width: 152,
+                  total: 6
+                }
+              },
+              {
+                breakpoint: 768,
+                config: {
+                  name: "default",
+                  isFreeToScroll: true,
+                  width: 188,
+                  total: 8
+                }
+              },
+              {
+                breakpoint: 1248,
+                config: {
+                  name: "default",
+                  imageTotalPerItem: 6,
+                  col: 2,
+                  total: 12
+                }
+              }
+            ]
+          })
         })
       </script>
     </section>
 
     <h3 class="container t-types-title">代码</h3>
-    <p class="t-desc">该组件主要由配置<a class="t-light" href="https://gitlab.199101.xyz/front-end/vendor/rich-slick">rich-slick</a>完成, 具体请<a
+    <p class="t-desc">该组件主要由配置<a class="t-light"
+                                 href="https://gitlab.199101.xyz/front-end/vendor/rich-slick">rich-slick</a>完成, 具体请<a
         href="https://gitlab.199101.xyz/front-end/vendor/rich-slick" class="t-light">参考文档</a></p>
 
     <section class="code-block d-none">
@@ -294,7 +298,8 @@
                 config: {
                   name: "default",
                   isFreeToScroll: true,
-                  width: 142
+                  width: 142,
+                  total: 6
                 }
               },
               {
@@ -302,7 +307,8 @@
                 config: {
                   name: "default",
                   isFreeToScroll: true,
-                  width: 152
+                  width: 152,
+                  total: 6
                 }
               },
               {
@@ -310,7 +316,8 @@
                 config: {
                   name: "default",
                   isFreeToScroll: true,
-                  width: 188
+                  width: 188,
+                  total: 8
                 }
               },
               {
@@ -319,7 +326,7 @@
                   name: "default",
                   imageTotalPerItem: 6,
                   col: 2,
-                  isShowMore: true
+                  total: 12
                 }
               }
             ]
@@ -534,6 +541,14 @@
         </li>
         
         <li class="item"><a href="/pages/tabs.html"><span class="num">20.</span>tabs 插件</a>
+          
+        </li>
+        
+        <li class="item"><a href="/pages/tabs-slick.html"><span class="num">21.</span>tabs-slick 插件</a>
+          
+        </li>
+        
+        <li class="item"><a href="/pages/banner-with-popular.html"><span class="num">22.</span>左banner右热门 组件</a>
           
         </li>
         
