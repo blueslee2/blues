@@ -54,8 +54,9 @@
   <h1 class="container t-section-title">Tabs 插件</h1>
   <div class="container">
     <div class="tabs-component">
-      <div class="tabs">
-        <ul class="tabs-list">
+      <button class="tabs-mobile-nav d-md-none"></button>
+      <div class="tabs d-none d-md-flex">
+        <ul class="tabs-list" data-default="1">
           <li>God Creates Adam and Eve</li>
           <li>His work and speech Lord Jesus</li>
           <li>Power and strength of the word of God</li>
@@ -74,8 +75,9 @@
 
         <!--无需js调用, 直接书写下面html即可-->
         <div class="tabs-component" id="tab-123">
-          <div class="tabs">
-            <ul class="tabs-list">
+          <button class="tabs-mobile-nav d-md-none"></button>
+          <div class="tabs d-none d-md-flex">
+            <ul class="tabs-list" data-default="1">
               <li>God Creates Adam and Eve</li>
               <li>His work and speech Lord Jesus</li>
               <li>Power and strength of the word of God</li>
@@ -101,7 +103,7 @@
 </main> <!-- End content -->
 
 <button class="btn-floating btn-large" id="sidenav-btn"><i class="icon-menu"></i></button>
-<section class="layout-sidenav">
+  <section class="layout-sidenav">
   <div class="sidenav-top">
     <button class="close-btn"><i class="icon-close"></i></button>
   </div>
@@ -121,6 +123,10 @@
             
             <li class="item"><a href="/pages/banner/banner-1.html">
                 <span class="num">1.1</span>非通屏banner</a>
+            </li>
+            
+            <li class="item"><a href="/pages/banner/banner-2.html">
+                <span class="num">1.2</span>Join Meeting Banner</a>
             </li>
             
           </ul>
@@ -318,17 +324,19 @@
   </div>
 </section>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/16.1.0/lazyload.min.js"></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js' crossorigin='anonymous'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/16.1.0/lazyload.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js'
+      crossorigin='anonymous'></script>
 
-<!-- framework -->
-<script src="https://centereu.kingdomsalvation.org/cdn/web-farm/findshepherd/framework/js/framework.min.js"></script>
+    <!-- framework -->
+    <script
+      src="https://centereu.kingdomsalvation.org/cdn/web-farm/findshepherd/framework/js/framework.min.js"></script>
 
-<!-- layout -->
-<script src="/js/index.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/prism.min.js"></script>
+    <!-- layout -->
+    <script src="/js/index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/prism.min.js"></script>
 
-</body>
+    </body>
 
-</html>
+    </html>
