@@ -51,16 +51,16 @@
     <!--gh content -->
     <main class="layout-container">
 
-<section id="article">
-  <div class="container">
-    <h1>视频组件</h1>
-    <p>&nbsp;</p>
-    <p>视频组件需要与<a href="https://gitlab.199101.xyz/front-end/vendor/rich-slick">rich-slick</a>插件一起使用</p>
-    <p>&nbsp;</p>
-    <p>使用方法大致如下, 具体使用细节请<a href="https://gitlab.199101.xyz/front-end/vendor/rich-slick">参照插件文档</a></p>
-    <section class="code-block d-none" style="margin-top: 32px">
-      <div id="target">
-        <script type="text/template" class="template">
+  <section id="article">
+    <div class="container">
+      <h1>视频组件</h1>
+      <p>&nbsp;</p>
+      <p>视频组件需要与<a href="https://gitlab.199101.xyz/front-end/vendor/rich-slick">rich-slick</a>插件一起使用</p>
+      <p>&nbsp;</p>
+      <p>使用方法大致如下, 具体使用细节请<a href="https://gitlab.199101.xyz/front-end/vendor/rich-slick">参照插件文档</a></p>
+      <section class="code-block d-none" style="margin-top: 32px">
+        <div id="target">
+          <script type="text/template" class="template">
             <div>
               <p class="title">我是标题</p>
               <p class="duration">00:02:32</p>
@@ -69,56 +69,56 @@
               <p class="description">我是描述</p>
             </div>
         </script>
-      </div>
-      <script>
-        window.addEventListener('app-ready', function () {
-          let R = new window.richSlic({
-            selector: "#target",
-            templateSelector: ".template",
-            responsive: [
-              {
-                breakpoint: 375,
-                config: {
-                  name: "layout-3",
-                  imageTotalPerItem: 3,
-                  total: 3
+        </div>
+        <script>
+          window.addEventListener('app-ready', function () {
+            let R = new window.richSlic({
+              selector: "#target",
+              templateSelector: ".template",
+              responsive: [
+                {
+                  breakpoint: 375,
+                  config: {
+                    name: "layout-3",
+                    imageTotalPerItem: 3,
+                    total: 3
+                  }
+                },
+                {
+                  breakpoint: 768,
+                  config: {
+                    name: "default",
+                    imageTotalPerItem: 3,
+                    col: 4,
+                    isShowMore: true,
+                    isFreeToScroll: true,
+                    width: 240
+                  }
+                },
+                {
+                  breakpoint: 998,
+                  config: {
+                    name: "layout-2",
+                    imageTotalPerItem: 3
+                  }
+                },
+                {
+                  breakpoint: 1200,
+                  config: {
+                    name: "layout-1",
+                    imageTotalPerItem: 5
+                  }
                 }
-              },
-              {
-                breakpoint: 768,
-                config: {
-                  name: "default",
-                  imageTotalPerItem: 3,
-                  col: 4,
-                  isShowMore: true,
-                  isFreeToScroll: true,
-                  width: 240
-                }
-              },
-              {
-                breakpoint: 998,
-                config: {
-                  name: "layout-2",
-                  imageTotalPerItem: 3
-                }
-              },
-              {
-                breakpoint: 1200,
-                config: {
-                  name: "layout-1",
-                  imageTotalPerItem: 5
-                }
-              }
-            ]
-          });
-        })
-      </script>
-    </section>
-  </div>
-</section>
+              ]
+            });
+          })
+        </script>
+      </section>
+    </div>
+  </section>
 
-<!-- gh footer -->
-</main> <!-- End content -->
+  <!-- gh footer -->
+  </main> <!-- End content -->
 
 <button class="btn-floating btn-large" id="sidenav-btn"><i class="icon-menu"></i></button>
   <section class="layout-sidenav">

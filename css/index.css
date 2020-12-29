@@ -71,10 +71,11 @@ body {
     text-decoration: none; }
 
 .t-light-text {
-  padding: 4px 6px;
+  padding: 2px 6px;
   background-color: #c5e7c7;
   border-radius: 4px;
-  display: inline; }
+  display: inline;
+  line-height: 1.6; }
 
 .language-html {
   width: 100%;
@@ -1372,7 +1373,7 @@ html[dir="rtl"] .modal .modal-box .modal-header .modal-header-close {
   height: 210px; }
   #banner .banner-strip > .container {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     height: 100%; }
 
 #banner .banner-bg {
@@ -1410,8 +1411,6 @@ html[dir="rtl"] .modal .modal-box .modal-header .modal-header-close {
 @media (min-width: 768px) {
   #banner .banner-strip {
     height: 256px; }
-    #banner .banner-strip > .container {
-      align-items: center; }
     #banner .banner-strip .ban-title.left h1 {
       text-align: left; }
     #banner .banner-strip .ban-title.center h1 {
@@ -1425,7 +1424,10 @@ html[dir="rtl"] .modal .modal-box .modal-header .modal-header-close {
 
 @media (max-width: 767.98px) {
   #banner .banner-strip .ban-title {
-    padding-bottom: 16px; } }
+    padding-bottom: 16px;
+    text-align: center; }
+    #banner .banner-strip .ban-title.right {
+      text-align: right; } }
 
 @media (max-width: 575.98px) {
   #banner .banner-strip {
@@ -1433,7 +1435,9 @@ html[dir="rtl"] .modal .modal-box .modal-header .modal-header-close {
 
 @media (max-width: 309.98px) {
   #banner .banner-strip {
-    height: 180px; } }
+    height: 180px; }
+    #banner .banner-strip .ban-title.right {
+      text-align: center; } }
 
 #banner .f-p-first-plate .card-title {
   justify-content: space-between !important; }
@@ -1782,27 +1786,28 @@ html[dir="rtl"] .modal .modal-box .modal-header .modal-header-close {
     display: none; } }
 
 @media (max-width: 767.98px) {
-  .audio-basic .col-md-4:nth-of-type(n + 2) .audio-card {
+  .audio-basic .col-md-4:nth-of-type(n + 2) .card {
     display: flex; }
-    .audio-basic .col-md-4:nth-of-type(n + 2) .audio-card .card-img,
-    .audio-basic .col-md-4:nth-of-type(n + 2) .audio-card .card-title {
+    .audio-basic .col-md-4:nth-of-type(n + 2) .card .card-img,
+    .audio-basic .col-md-4:nth-of-type(n + 2) .card .card-title {
       width: 50%; }
-    .audio-basic .col-md-4:nth-of-type(n + 2) .audio-card .card-img {
+    .audio-basic .col-md-4:nth-of-type(n + 2) .card .card-img {
       padding-right: 8px; }
-    .audio-basic .col-md-4:nth-of-type(n + 2) .audio-card .card-title {
-      padding-left: 8px; }
-  .audio-basic .col-md-4:last-child .audio-card {
+    .audio-basic .col-md-4:nth-of-type(n + 2) .card .card-title {
+      padding-left: 8px;
+      padding-top: 0; }
+  .audio-basic .col-md-4:last-child .card {
     margin-bottom: 0 !important; } }
 
 @media (max-width: 309.98px) {
-  .audio-basic .audio-card {
+  .audio-basic .card {
     margin-bottom: 24px; }
-  .audio-basic .col-md-4:nth-of-type(n + 2) .audio-card {
+  .audio-basic .col-md-4:nth-of-type(n + 2) .card {
     padding-top: 24px;
     border-top: 1px solid #ebebeb; }
-    .audio-basic .col-md-4:nth-of-type(n + 2) .audio-card .card-img {
+    .audio-basic .col-md-4:nth-of-type(n + 2) .card .card-img {
       display: none; }
-    .audio-basic .col-md-4:nth-of-type(n + 2) .audio-card .card-title {
+    .audio-basic .col-md-4:nth-of-type(n + 2) .card .card-title {
       width: 100%;
       padding: 0; } }
 
@@ -1996,7 +2001,7 @@ html[dir="rtl"] .modal .modal-box .modal-header .modal-header-close {
         font-size: 24px; } }
   @media (min-width: 1248px) {
     .popular-verse-of-day-bg {
-      padding: 76px 240px 60px 240px; } }
+      padding: 60px 240px; } }
 
 .popular-verse-of-day .timer,
 .popular-verse-of-day-bg .timer {
@@ -2893,7 +2898,7 @@ html[dir="rtl"] .modal .modal-box .modal-header .modal-header-close {
         height: 100%; }
   @media (min-width: 768px) {
     .popular-down-apps {
-      padding: 28px 46px 28px 38px; }
+      padding: 28px 46px 28px 40px; }
       .popular-down-apps .apps-wrapper {
         display: flex;
         align-items: center;
@@ -2985,8 +2990,8 @@ html[dir="rtl"] .modal .modal-box .modal-header .modal-header-close {
   border-radius: 8px;
   overflow: hidden;
   position: relative;
-  min-width: 295px;
-  width: 295px;
+  min-width: 294px;
+  width: 294px;
   height: 405px;
   margin-right: 23px;
   margin-bottom: 8px; }
@@ -5229,5 +5234,12 @@ html[dir="rtl"] .modal .modal-box .modal-header .modal-header-close {
   100% {
     transform-origin: 0 0;
     transform: translateX(16px); } }
+
+.devotion-for-today .panel-body:nth-of-type(1) {
+  margin-bottom: 40px; }
+
+@media (min-width: 992px) {
+  .devotion-for-today .panel-body:nth-of-type(1) {
+    margin-bottom: 56px; } }
 
 /*# sourceMappingURL=index.css.map */
