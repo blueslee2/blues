@@ -444,49 +444,7 @@ AudioPlayer = /*#__PURE__*/function () {
 
     {var _this = this;
       var $bannerCardSlick = $(".banner-carousel-5");
-      // let options = {
-      //   infinite: true,
-      //   slidesToShow: 3,
-      //   slidesToScroll: 1,
-      //   adaptiveHeight: false,
-      //   autoplay: false,
-      //   autoplaySpeed: 5000,
-      //   speed: 300,
-      //   dots: false,
-      //   arrows: false,
-      //   rows: 0,
-      //   draggable: true,
-      //   pauseOnFocus: false,
-      //   cssEase: "linear",
-      //   centerMode: true,
-      //   centerPadding: "0",
-
-      //   responsive: [
-      //     {
-      //       breakpoint: 1199,
-      //       settings: {
-      //         centerMode: false,
-      //         variableWidth: false,
-      //         speed: 300,
-      //       },
-      //     },
-      //     {
-      //       breakpoint: 767,
-      //       settings: {
-      //         slidesToShow: 1,
-      //         centerMode: false,
-      //         variableWidth: false,
-      //         speed: 260,
-      //         dots: true,
-      //       },
-      //     },
-      //   ],
-      // };
-
-      // $bannerCardSlick.slick(options).removeClass("init");
-      // $bannerCardSlick.on("beforeChange", function () {
-      //   window.LazyLoad.update();
-      // });
+      if ($bannerCardSlick.length < 1) return;
 
       $.getScript(
       "https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.1/swiper-bundle.min.js",
