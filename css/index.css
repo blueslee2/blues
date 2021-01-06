@@ -1054,7 +1054,7 @@ html[dir="rtl"] .modal .modal-box .modal-header .modal-header-close {
       font-family: Roboto;
       margin-left: 20px; }
     .share-wrapper .start-at .checkbox + span::after {
-      border-color: #3998e6;
+      border-color: #36b049;
       top: 0; }
     .share-wrapper .start-at .checkbox + span::before {
       top: 2px; }
@@ -1922,7 +1922,7 @@ html[dir="rtl"] .modal .modal-box .modal-header .modal-header-close {
   .popular-article-bg .pop-content-text {
     margin-top: 16px; }
   .popular-article-bg .pop-read-more {
-    margin-top: 48px; }
+    margin-top: 32px; }
   @media (min-width: 768px) {
     .popular-article-bg {
       padding: 72px 72px 76px 72px; }
@@ -2412,13 +2412,29 @@ html[dir="rtl"] .modal .modal-box .modal-header .modal-header-close {
       width: 100%; }
     .gallery-card .img-item .item-info .btn-icon {
       margin: 0 4px; }
+    .gallery-card .img-item .item-info i {
+      font-size: 20px;
+      opacity: 0.8; }
+    .gallery-card .img-item .item-info button,
+    .gallery-card .img-item .item-info a {
+      border: 0;
+      height: 40px; }
+      .gallery-card .img-item .item-info button:hover i,
+      .gallery-card .img-item .item-info a:hover i {
+        color: #51555c;
+        opacity: 1; }
+    .gallery-card .img-item .item-info .js-share-btn,
+    .gallery-card .img-item .item-info .js-down-btn {
+      width: 40px; }
     .gallery-card .img-item .item-info .js-fave-btn {
       width: auto;
       padding: 0 8px;
       border-radius: 36px; }
-      .gallery-card .img-item .item-info .js-fave-btn:hover i {
-        color: #51555c; }
+      .gallery-card .img-item .item-info .js-fave-btn span {
+        color: #4e535c;
+        padding-left: 2px; }
       .gallery-card .img-item .item-info .js-fave-btn.like .icon-favorite {
+        opacity: 1 !important;
         color: rgba(222, 73, 26, 0.86) !important; }
   @media (min-width: 1248px) {
     .gallery-card .item-info,
@@ -2428,8 +2444,9 @@ html[dir="rtl"] .modal .modal-box .modal-header .modal-header-close {
       transition: all 0.35s ease; }
     .gallery-card .item-info {
       top: 8px;
-      right: 0;
-      transform: translateY(-6px); }
+      right: 8px;
+      transform: translateY(-6px);
+      will-change: transform; }
       .gallery-card .item-info a,
       .gallery-card .item-info button {
         background-color: #ffffff; }
@@ -2439,7 +2456,8 @@ html[dir="rtl"] .modal .modal-box .modal-header .modal-header-close {
       width: 100%;
       transform: translateY(6px);
       padding: 34px 8px 8px 8px;
-      background: transparent linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 60%, rgba(0, 0, 0, 0.85098) 100%) 0% 0% no-repeat padding-box; }
+      background: transparent linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 60%, rgba(0, 0, 0, 0.85098) 100%) 0% 0% no-repeat padding-box;
+      will-change: transform; }
       .gallery-card .card-title span {
         font-size: 14px;
         color: #ffffff;
@@ -2460,7 +2478,7 @@ html[dir="rtl"] .modal .modal-box .modal-header .modal-header-close {
       box-shadow: 0 6px 16px rgba(0, 0, 0, 0.16); }
       .gallery-card .img-item .item-info {
         background-color: #ffffff;
-        padding: 8px 28px 12px 24px; }
+        padding: 8px 12px 12px 12px; }
         .gallery-card .img-item .item-info .js-fave-btn {
           margin-left: auto;
           margin-right: 0; }
@@ -2642,7 +2660,8 @@ html[dir="rtl"] .modal .modal-box .modal-header .modal-header-close {
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
     border-radius: 6px;
     overflow: hidden;
-    transition: all 0.3s ease; }
+    transition: transform 0.3s ease;
+    will-change: transform; }
     .popular-call-action .call-action-box .call-action-btn:hover,
     .popular-call-action-base .call-action-box .call-action-btn:hover {
       box-shadow: 0 5px 10px rgba(0, 0, 0, 0.16);
@@ -3248,7 +3267,7 @@ html[dir="rtl"] .modal .modal-box .modal-header .modal-header-close {
       text-align: right; }
   @media (min-width: 1248px) {
     .bible-item .bible-card {
-      padding-bottom: 96px; }
+      padding-bottom: 72px; }
       .bible-item .bible-card .bible-text {
         margin-top: 24px; } }
   @media (min-width: 768px) {
@@ -3297,8 +3316,10 @@ html[dir="rtl"] .modal .modal-box .modal-header .modal-header-close {
           padding-right: 4px;
           text-align: center; } }
   @media (min-width: 1248px) {
-    .panel.plan1 .panel-header {
-      margin-bottom: 40px; } }
+    .panel.plan1 {
+      margin-bottom: 72px; }
+      .panel.plan1 .panel-header {
+        margin-bottom: 40px; } }
   @media (max-width: 767.98px) {
     .panel.plan1 .panel-header > a {
       width: 100%; }
@@ -3559,22 +3580,109 @@ html[dir="rtl"] .modal .modal-box .modal-header .modal-header-close {
     .classify-label .label-wrap {
       width: calc(100% - 8px * 2) !important; } }
 
+.pagination {
+  text-align: center;
+  display: none; }
+
+.pagination .line-see-more {
+  display: none;
+  padding: 11px 8px;
+  color: #208f35 !important; }
+
+.main-part {
+  position: relative;
+  min-height: 50vh; }
+
+.spinner-box {
+  text-align: center;
+  margin-top: 50px;
+  display: none; }
+
+.list-inter {
+  overflow: hidden;
+  margin-bottom: -16px; }
+
+@media (min-width: 310px) {
+  .list-inter {
+    margin-bottom: -24px; } }
+
+@media (min-width: 768px) {
+  .list-inter {
+    margin-bottom: -32px; } }
+
+@media (min-width: 1248px) {
+  .pagination {
+    margin-top: 32px; }
+  .main-part {
+    min-height: 100vh; }
+  .spinner-box {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 200px; } }
+
+@media (max-width: 1247.98px) {
+  .pagination .line-see-more {
+    margin-top: 14px; } }
+
+@media (min-width: 1248px) {
+  .sidebar-part .popular-commercial-picture .recom-item {
+    display: block;
+    width: 100%;
+    height: 352px;
+    background-color: #f4f4f4; } }
+
+#go-top {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 184px;
+  right: 26px;
+  z-index: 886;
+  background: #ebf2ff;
+  box-shadow: 0 3px 5px rgba(91, 117, 178, 0.16);
+  cursor: pointer;
+  display: none; }
+  #go-top i {
+    font-size: 24px;
+    line-height: 36px;
+    display: block;
+    color: #208f35;
+    font-weight: 600;
+    transition: transform 0.25s ease-in-out;
+    transform: translate(0, 0); }
+  #go-top:hover {
+    background: #f2f6fc;
+    box-shadow: 0 3px 8px rgba(91, 117, 178, 0.22); }
+    #go-top:hover i {
+      transform: translate(0, -2px); }
+  #go-top:active {
+    background: #208f35; }
+    #go-top:active i {
+      color: #ffffff; }
+
+@media (max-width: 1247.98px) {
+  #go-top {
+    display: none !important; } }
+
 .article-card-cover,
 .video-box .rich-slick-card .cover {
   position: relative;
   width: 100%;
   overflow: hidden;
-  border-radius: 4px; }
+  border-radius: 8px; }
   .article-card-cover a,
   .article-card-cover img,
   .video-box .rich-slick-card .cover a,
   .video-box .rich-slick-card .cover img {
-    border-radius: 4px; }
+    border-radius: 8px; }
   .article-card-cover a,
   .video-box .rich-slick-card .cover a {
     display: block;
     padding-bottom: 62.25%;
-    overflow: hidden; }
+    overflow: hidden;
+    background: #f4f4f4; }
   .article-card-cover img,
   .video-box .rich-slick-card .cover img {
     display: block;
@@ -3585,20 +3693,13 @@ html[dir="rtl"] .modal .modal-box .modal-header .modal-header-close {
     height: 100%;
     object-fit: cover;
     object-position: center;
-    transition: transform 0.3s;
+    transition: transform 0.5s, opacity 2s;
     transform: translate3D(-50%, -50%, 0);
     backface-visibility: hidden; }
 
-.article-card-cover {
-  border-radius: 8px;
-  overflow: hidden; }
-  .article-card-cover a,
-  .article-card-cover img {
-    border-radius: 8px; }
-
 @media (min-width: 1248px) {
   .article-card-cover:hover img {
-    transform: translate3D(-50%, -50%, 0) scale(1.08); } }
+    transform: translate3D(-50%, -50%, 0) scale(1.05); } }
 
 @media (max-width: 991.98px) {
   .article-box.default .article-card:nth-of-type(1), .article-box.default .article-card:nth-of-type(2) {
@@ -4535,7 +4636,9 @@ html[dir="rtl"] .article-card-section-title i {
 
 @media (min-width: 768px) {
   .video-box .rich-slick-item.default.default .col-6:nth-of-type(3) .rich-slick-card,
-  .video-box .rich-slick-item.default.default .col-6:nth-of-type(4) .rich-slick-card {
+  .video-box .rich-slick-item.default.default .col-6:nth-of-type(3) .is-show-more,
+  .video-box .rich-slick-item.default.default .col-6:nth-of-type(4) .rich-slick-card,
+  .video-box .rich-slick-item.default.default .col-6:nth-of-type(4) .is-show-more {
     margin-top: 32px; } }
 
 @media (max-width: 767.98px) {
@@ -4588,6 +4691,7 @@ html[dir="rtl"] .article-card-section-title i {
     margin-right: 16px; } }
 
 .rich-slick-card .cover::before {
+  pointer-events: none;
   cursor: pointer;
   position: absolute;
   content: "";
@@ -4602,6 +4706,7 @@ html[dir="rtl"] .article-card-section-title i {
   transition: 0.3s ease-in-out; }
 
 .rich-slick-card .cover::after {
+  pointer-events: none;
   cursor: pointer;
   position: absolute;
   content: "";
@@ -4903,15 +5008,19 @@ html[dir="rtl"] .video-box .duration {
     padding-bottom: 8px;
     background: #fff;
     border-radius: 8px;
-    z-index: 99;
+    z-index: 9999;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12); }
     .tabs-component .popover-box .popover-item {
       padding-right: 8px !important;
       padding-left: 8px !important; }
       .tabs-component .popover-box .popover-item button {
+        border: 1px solid rgba(0, 0, 0, 0.08);
         padding: 12px;
         width: 100%;
-        line-height: 1.2em; }
+        line-height: 1.2em;
+        color: #333; }
+      .tabs-component .popover-box .popover-item:hover button {
+        border-color: #36b049; }
       .tabs-component .popover-box .popover-item.current button {
         background-color: #36b049;
         border-color: #36b049;
@@ -4921,7 +5030,8 @@ html[dir="rtl"] .video-box .duration {
     @media (max-width: 767.98px) {
       .tabs-component .popover-box {
         display: none !important; } }
-  .tabs-component.popover .popover-btn {
+  .tabs-component .popover-btn {
+    display: none;
     background: #e7f5e8; }
   .tabs-component.popover > .btn {
     display: none !important; }

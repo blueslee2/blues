@@ -1,5 +1,22 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
-"use strict";var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports, "__esModule", { value: true });exports["default"] = void 0;var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));var _flexibleDescription = _interopRequireDefault(require("../vendor/flexible-description.min"));var
+"use strict";var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports, "__esModule", { value: true });exports["default"] = void 0;var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));var FlexibleOption = function FlexibleOption(elDom, row1, row2) {
+  return {
+    selector: elDom,
+    rows: 3,
+    titleSelector: ".card-title>p>a",
+    descriptionSelector: ".card-title>.desc",
+    responsive: [
+    {
+      breakpoint: 1248,
+      rows: row1 },
+
+    {
+      breakpoint: 768,
+      rows: row2 }] };
+
+
+
+};var
 Lists = /*#__PURE__*/function () {
   function Lists() {(0, _classCallCheck2["default"])(this, Lists);
     this.init();
@@ -10,48 +27,29 @@ Lists = /*#__PURE__*/function () {
     } }, { key: "default_list_rows", value: function default_list_rows()
 
     {
-      new _flexibleDescription["default"]({
-        selector: ".list-card:not(.has-attrs)",
-        rows: 3,
-        titleSelector: ".card-title>p>a",
-        descriptionSelector: ".card-title>.desc",
-        responsive: [
-        {
-          breakpoint: 1248,
-          rows: 5 },
-
-        {
-          breakpoint: 768,
-          rows: 4 }] });
-
-
+      new window.FlexibleDescription(
+      FlexibleOption(".list-card:not(.has-attrs)", 5, 4));
 
     } }, { key: "has_attrs_list_rows", value: function has_attrs_list_rows()
 
     {
-      new _flexibleDescription["default"]({
-        selector: ".list-card.has-attrs",
-        rows: 3,
-        titleSelector: ".card-title>p>a",
-        descriptionSelector: ".card-title>.desc",
-        responsive: [
-        {
-          breakpoint: 1248,
-          rows: 4 },
-
-        {
-          breakpoint: 768,
-          rows: 3 }] });
-
-
+      new window.FlexibleDescription(
+      FlexibleOption(".list-card.has-attrs", 4, 3));
 
     } }]);return Lists;}();exports["default"] = Lists;
 
-},{"../vendor/flexible-description.min":19,"@babel/runtime/helpers/classCallCheck":25,"@babel/runtime/helpers/createClass":26,"@babel/runtime/helpers/interopRequireDefault":27}],2:[function(require,module,exports){
+
+window.flexible_description_reset = function () {
+  //  @ts-ignore
+  new window.FlexibleDescription(FlexibleOption(".list-card", 5, 4));
+};
+
+},{"@babel/runtime/helpers/classCallCheck":25,"@babel/runtime/helpers/createClass":26,"@babel/runtime/helpers/interopRequireDefault":27}],2:[function(require,module,exports){
 "use strict";var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports, "__esModule", { value: true });exports["default"] = void 0;var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));var _flexibleDescription = _interopRequireDefault(require("../vendor/flexible-description.min"));var
 
 Article = /*#__PURE__*/function () {
   function Article() {(0, _classCallCheck2["default"])(this, Article);
+    window["FlexibleDescription"] = _flexibleDescription["default"];
     this.init();
   }(0, _createClass2["default"])(Article, [{ key: "init", value: function init()
 
@@ -638,9 +636,7 @@ var slick_arrow_btn_control = function slick_arrow_btn_control($mySlick) {
 window.slickCarousel(".carousel1", 4, 4);
 
 },{"@babel/runtime/helpers/classCallCheck":25,"@babel/runtime/helpers/createClass":26,"@babel/runtime/helpers/interopRequireDefault":27}],6:[function(require,module,exports){
-"use strict";var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports, "__esModule", { value: true });exports["default"] = void 0;var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));var _jquery = require("jquery");var
-
-ClassifyLabel = /*#__PURE__*/function () {
+"use strict";var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports, "__esModule", { value: true });exports["default"] = void 0;var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));var ClassifyLabel = /*#__PURE__*/function () {
   function ClassifyLabel() {(0, _classCallCheck2["default"])(this, ClassifyLabel);
     this.classifyLabel = $(".classify-label");
     this.dropdownBtn = $(".dropdown-btn");
@@ -752,36 +748,10 @@ ClassifyLabel = /*#__PURE__*/function () {
       }
     } }]);return ClassifyLabel;}();exports["default"] = ClassifyLabel;
 
-},{"@babel/runtime/helpers/classCallCheck":25,"@babel/runtime/helpers/createClass":26,"@babel/runtime/helpers/interopRequireDefault":27,"jquery":29}],7:[function(require,module,exports){
-"use strict";var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports, "__esModule", { value: true });exports["default"] = void 0;var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));var CommercialFn = /*#__PURE__*/function () {
-  function CommercialFn() {(0, _classCallCheck2["default"])(this, CommercialFn);
-    this.$asideCommercialWrap = $(".aside-commercial-wrap");
-    this.init();
-  }(0, _createClass2["default"])(CommercialFn, [{ key: "init", value: function init()
-    {
-      this.close_commercial();
-    } }, { key: "close_commercial", value: function close_commercial()
-    {
-      this.$asideCommercialWrap.on("click", ".close-btn", function (ev) {
-        var $parents = $(ev.currentTarget).closest(".aside-commercial-wrap");
-        $parents.animate(
-        {
-          height: 0,
-          opacity: 0 },
-
-        {
-          duration: 240,
-          complete: function complete() {
-            $parents.remove();
-          } });
-
-
-      });
-    } }]);return CommercialFn;}();exports["default"] = CommercialFn;
-
-},{"@babel/runtime/helpers/classCallCheck":25,"@babel/runtime/helpers/createClass":26,"@babel/runtime/helpers/interopRequireDefault":27}],8:[function(require,module,exports){
+},{"@babel/runtime/helpers/classCallCheck":25,"@babel/runtime/helpers/createClass":26,"@babel/runtime/helpers/interopRequireDefault":27}],7:[function(require,module,exports){
 "use strict";var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports, "__esModule", { value: true });exports["default"] = void 0;var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));var CommercialPicture = /*#__PURE__*/function () {
   function CommercialPicture() {(0, _classCallCheck2["default"])(this, CommercialPicture);
+    this.$asideCommercialWrap = $(".aside-commercial-wrap");
     this.popularPicture = $(".popular-commercial-picture");
     this.init();
   }(0, _createClass2["default"])(CommercialPicture, [{ key: "init", value: function init()
@@ -789,6 +759,8 @@ ClassifyLabel = /*#__PURE__*/function () {
       this.popularPicture.map(function (i, el) {
         _this.produce_a_picture($(el).find(".recom-item"));
       });
+
+      this.close_commercial();
     }
     /**
      * 创建图片模板
@@ -849,9 +821,31 @@ ClassifyLabel = /*#__PURE__*/function () {
       var dataArry = ["data-pc-img", "data-tab-img", "data-mb-img", "data-title"];
 
       $el.removeAttr(dataArry.join(" "));
+      $el.css({ height: "auto" });
+    }
+
+    /**
+     * 关闭广告
+     */ }, { key: "close_commercial", value: function close_commercial()
+    {
+      this.$asideCommercialWrap.on("click", ".close-btn", function (ev) {
+        var $parents = $(ev.currentTarget).closest(".aside-commercial-wrap");
+        $parents.animate(
+        {
+          height: 0,
+          opacity: 0 },
+
+        {
+          duration: 240,
+          complete: function complete() {
+            $parents.remove();
+          } });
+
+
+      });
     } }]);return CommercialPicture;}();exports["default"] = CommercialPicture;
 
-},{"@babel/runtime/helpers/classCallCheck":25,"@babel/runtime/helpers/createClass":26,"@babel/runtime/helpers/interopRequireDefault":27}],9:[function(require,module,exports){
+},{"@babel/runtime/helpers/classCallCheck":25,"@babel/runtime/helpers/createClass":26,"@babel/runtime/helpers/interopRequireDefault":27}],8:[function(require,module,exports){
 "use strict";var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports, "__esModule", { value: true });exports["default"] = void 0;var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));var exhibitionApps = /*#__PURE__*/function () {
   function exhibitionApps() {(0, _classCallCheck2["default"])(this, exhibitionApps);
     this.headOperate = $("#web-header .head-operate");
@@ -954,7 +948,7 @@ ClassifyLabel = /*#__PURE__*/function () {
       }, 420);
     } }]);return exhibitionApps;}();exports["default"] = exhibitionApps;
 
-},{"@babel/runtime/helpers/classCallCheck":25,"@babel/runtime/helpers/createClass":26,"@babel/runtime/helpers/interopRequireDefault":27}],10:[function(require,module,exports){
+},{"@babel/runtime/helpers/classCallCheck":25,"@babel/runtime/helpers/createClass":26,"@babel/runtime/helpers/interopRequireDefault":27}],9:[function(require,module,exports){
 "use strict";var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports, "__esModule", { value: true });exports["default"] = void 0;var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));var FormSearch = /*#__PURE__*/function () {
   function FormSearch() {(0, _classCallCheck2["default"])(this, FormSearch);
     this.$searchForm = $(".search-form");
@@ -986,7 +980,7 @@ ClassifyLabel = /*#__PURE__*/function () {
 
       $searchChangeBtn.
       find("span").
-      html($("button[data-option=\"".concat(type, "\"]")).text());
+      html($("button[data-option=\"".concat(type, "\"]")).html());
     }
 
     /**
@@ -1031,7 +1025,7 @@ ClassifyLabel = /*#__PURE__*/function () {
             setTimeout(function () {return $input.focus();}, 200);
           });
         });
-
+        _this.init_check_input_value($input, $clearBtn);
         _this.search_options_box_hide($searchOptions);
       });
     }
@@ -1055,6 +1049,7 @@ ClassifyLabel = /*#__PURE__*/function () {
     $el, $form, $searchChangeBtn, $input) {
       var type = $el.attr("data-option");
       this.init_search($searchChangeBtn, $form, $input, type);
+
       setTimeout(function () {
         $el.addClass("active").siblings("button").removeClass("active");
       }, 150);
@@ -1090,7 +1085,76 @@ ClassifyLabel = /*#__PURE__*/function () {
         $input.val("");
         return false;
       });
+    }
+    /**
+     * 检测加载进来输入框不为空时显示清除按钮
+     */ }, { key: "init_check_input_value", value: function init_check_input_value(
+
+    $input, $clearBtn) {
+      if ($input.get(0).value.trim() !== "") {
+        $clearBtn.addClass("on");
+      }
     } }]);return FormSearch;}();exports["default"] = FormSearch;
+
+},{"@babel/runtime/helpers/classCallCheck":25,"@babel/runtime/helpers/createClass":26,"@babel/runtime/helpers/interopRequireDefault":27}],10:[function(require,module,exports){
+"use strict";var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports, "__esModule", { value: true });exports["default"] = void 0;var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass")); //  返回顶部按钮
+var
+GoTop = /*#__PURE__*/function () {
+  function GoTop() {var _this = this;(0, _classCallCheck2["default"])(this, GoTop);
+    this.lastScrollPosition = 0;
+    if (window.innerWidth < 1199) return;
+    setTimeout(function () {return _this.init();}, 3600);
+  }(0, _createClass2["default"])(GoTop, [{ key: "init", value: function init()
+
+    {
+      $(document.body).append("<button id=\"go-top\"><i class=\"icon-expand-less\"></i></button>");
+
+
+
+      this.scroll_top();
+      this.go_top_click();
+    }
+    /**
+     * 按钮的显示隐藏 ，与自定义畅聊绑定
+     */ }, { key: "scroll_top", value: function scroll_top()
+    {var _this2 = this;
+      var scroll_event = function scroll_event() {
+        _this2.lastScrollPosition = $(window).scrollTop();
+        if (_this2.lastScrollPosition > $(window).height() * 1.2) {
+          //  当自定义畅聊展开时，隐藏返回顶部按钮
+          if (
+          $("#js-floating-action-box .kit-follow-platform").hasClass("show"))
+          {
+            $("#go-top").removeClass("show").fadeOut(20);
+          } else {
+            $("#go-top").addClass("show").fadeIn(300);
+          }
+        } else {
+          $("#go-top").removeClass("show").fadeOut(300);
+        }
+      };
+      scroll_event();
+      //  滚动屏幕计算按钮的显示隐藏
+      $(window).on("scroll", function () {return (
+          window.requestAnimationFrame(function () {return scroll_event();}));});
+
+    }
+    /**
+     * 点击按钮，返回顶部
+     */ }, { key: "go_top_click", value: function go_top_click()
+    {
+      $("#go-top").on("click", function () {
+        $("html, body").animate(
+        {
+          scrollTop: 0 },
+
+        600,
+        function () {
+          $("#go-top").fadeOut();
+        });
+
+      });
+    } }]);return GoTop;}();exports["default"] = GoTop;
 
 },{"@babel/runtime/helpers/classCallCheck":25,"@babel/runtime/helpers/createClass":26,"@babel/runtime/helpers/interopRequireDefault":27}],11:[function(require,module,exports){
 "use strict";var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports, "__esModule", { value: true });exports["default"] = void 0;var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass")); //  原生获取样式中的某一个属性的值
@@ -1508,9 +1572,16 @@ TabsComponent = /*#__PURE__*/function () {
         if (_this4.$el.hasClass("popover") && window.innerWidth < 768) {
           _this4.hidePopover();
         }
+
+        if (_this4.$el.find(".tabs").hasClass("tabs-overflow")) {
+          _this4.$el.find(".popover-btn").show();
+        } else {
+          _this4.$el.find(".popover-btn").hide();
+        }
       };
 
       $(window).on("resize", this.debounce(resize, 200));
+      resize();
     }
 
     /**
@@ -1540,7 +1611,7 @@ TabsComponent = /*#__PURE__*/function () {
       var items = this.getTabs();
       var popoverHTML = "";
       items.map(function (item) {
-        popoverHTML += "<div class=\"col-4 popover-item\"><button class=\"btn line-btn green-line\" data-index=\"".concat(item.index, "\">").concat(item.title, "</button></div>");
+        popoverHTML += "<div class=\"col-4 popover-item\"><button class=\"btn line-btn\" data-index=\"".concat(item.index, "\">").concat(item.title, "</button></div>");
       });
       this.$el.append(
       $("<div class=\"popover-box\" />").html("<div class=\"row\">".concat(
@@ -1766,7 +1837,6 @@ Video = /*#__PURE__*/function () {
 var _cardCarousel = _interopRequireDefault(require("./modules/card-carousel"));
 var _subscription = _interopRequireDefault(require("./modules/subscription"));
 var _websiteShare = _interopRequireDefault(require("./modules/website-share"));
-var _commercialFn = _interopRequireDefault(require("./modules/commercial-fn"));
 var _sparePartsFn = _interopRequireDefault(require("./modules/spare-parts-fn"));
 var _banner = _interopRequireDefault(require("./modules/banner"));
 var _popularAd = _interopRequireDefault(require("./modules/popular-ad"));
@@ -1776,6 +1846,7 @@ var _topics = _interopRequireDefault(require("./modules/topics"));
 var _commercialPicture = _interopRequireDefault(require("./modules/commercial-picture"));
 var _Lists = _interopRequireDefault(require("./modules/Lists"));
 var _classifyLabel = _interopRequireDefault(require("./modules/classify-label"));
+var _goTop = _interopRequireDefault(require("./modules/go-top"));
 
 
 var _article = _interopRequireDefault(require("./modules/article"));
@@ -1793,14 +1864,13 @@ window.addEventListener("load", function () {// -- JY
   new _cardCarousel["default"]();
   new _subscription["default"]();
   new _websiteShare["default"]();
-  new _commercialFn["default"]();
   new _sparePartsFn["default"]();
   new _exhibitionApps["default"]();
   new _formSearch["default"]();
   new _topics["default"]();
   new _commercialPicture["default"]();
-  new _Lists["default"]();
   new _classifyLabel["default"]();
+  new _goTop["default"]();
 
   // -- LH
   new _article["default"]();
@@ -1811,10 +1881,13 @@ window.addEventListener("load", function () {// -- JY
   // -- HN
   new _audioPlayer["default"]();
 
+  // -- JY (得在后面执行)
+  new _Lists["default"]();
+
   window.dispatchEvent(new CustomEvent("app-ready"));
 });
 
-},{"./modules/Lists":1,"./modules/article":2,"./modules/audio-player":3,"./modules/banner":4,"./modules/card-carousel":5,"./modules/classify-label":6,"./modules/commercial-fn":7,"./modules/commercial-picture":8,"./modules/exhibition-apps":9,"./modules/form-search":10,"./modules/popular-ad":11,"./modules/spare-parts-fn":12,"./modules/subscription":13,"./modules/tabs":15,"./modules/tabs-slick":14,"./modules/topics":16,"./modules/video":17,"./modules/website-share":18,"@babel/runtime/helpers/interopRequireDefault":27}],25:[function(require,module,exports){
+},{"./modules/Lists":1,"./modules/article":2,"./modules/audio-player":3,"./modules/banner":4,"./modules/card-carousel":5,"./modules/classify-label":6,"./modules/commercial-picture":7,"./modules/exhibition-apps":8,"./modules/form-search":9,"./modules/go-top":10,"./modules/popular-ad":11,"./modules/spare-parts-fn":12,"./modules/subscription":13,"./modules/tabs":15,"./modules/tabs-slick":14,"./modules/topics":16,"./modules/video":17,"./modules/website-share":18,"@babel/runtime/helpers/interopRequireDefault":27}],25:[function(require,module,exports){
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
     throw new TypeError("Cannot call a class as a function");
