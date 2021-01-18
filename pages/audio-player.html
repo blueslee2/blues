@@ -48,8 +48,8 @@
     </a>
   </div>
 </header>
-    <!--gh content -->
-    <main class="layout-container">
+        <!--gh content -->
+        <main class="layout-container">
 <h1 class="container t-section-title">音乐播放器组件</h1>
 
 <div id="fix-player">
@@ -92,7 +92,7 @@
 
       <div class="row" style="margin-top: 32px;">
         <div class="col-12">
-          <div class="audio-player loading" data-url="https://audio.biblesearches.org/ENSHYP/the-incarnation-excerpt-101.m4a">
+          <div class="audio-player-reader loading" data-url="https://audio.biblesearches.org/ENSHYP/the-incarnation-excerpt-101.m4a">
             <button class="btn-icon play-pause">
               <i class="icon-play-arrow"></i>
               <i class="icon-pause"></i>
@@ -108,7 +108,7 @@
               <button class="btn-icon"><i class="icon-volume-up"></i></button>
             </div>
             <div class="audio-download d-none d-md-block">
-              <a class="btn-icon" href="https://www.hidden-advent.org/download.html?type=audiobooks&mime=audio&object_id=138115">
+              <a class="btn-icon" href="https://test-findshepherd.199101.xyz/download.html?type=recital&mime=audio&object_id=28117" download>
                 <i class="icon-list-download"></i>
               </a>
             </div>
@@ -118,11 +118,12 @@
     </div>
   </div>
 </section>
+<p style="height: 2000px"></p>
 <!-- gh footer -->
 </main> <!-- End content -->
 
 <button class="btn-floating btn-large" id="sidenav-btn"><i class="icon-menu"></i></button>
-  <section class="layout-sidenav">
+<section class="layout-sidenav">
   <div class="sidenav-top">
     <button class="close-btn"><i class="icon-close"></i></button>
   </div>
@@ -350,20 +351,42 @@
     <footer></footer>
   </div>
 </section>
+<script>
+  var u = navigator.userAgent
+  //  加载polyfill兼容IE11
+  if (/MSIE \d|Trident.*rv:/.test(u)) {
+    var script = document.createElement('script');
+    script.type = 'text/javaScript';
+    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.10.1/polyfill.min.js';
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+  //  判断ios设备
+  if (/(?:iPhone|iPad|iPod|iOS|Mac OS)/i.test(u) && window.innerWidth < 1199) {
+    document.body.classList.add('IOS')
+  }
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/16.1.0/lazyload.min.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js'
+        crossorigin='anonymous'></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/16.1.0/lazyload.min.js"></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js'
-      crossorigin='anonymous'></script>
+<!-- framework -->
+<script
+  src="https://centereu.kingdomsalvation.org/cdn/web-farm/findshepherd/framework/js/framework.min.js"></script>
 
-    <!-- framework -->
-    <script
-      src="https://centereu.kingdomsalvation.org/cdn/web-farm/findshepherd/framework/js/framework.min.js"></script>
+<!-- layout -->
+<script src="/js/index.js"></script>
+<script>
+  var u = navigator.userAgent
+  //  加载polyfill兼容IE11
+  if (!/MSIE \d|Trident.*rv:/.test(u)) {
+    var script = document.createElement('script');
+    script.type = 'text/javaScript';
+    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/prism.min.js';
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+</script>
 
-    <!-- layout -->
-    <script src="/js/index.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/prism.min.js"></script>
+</body>
 
-    </body>
-
-    </html>
+</html>
