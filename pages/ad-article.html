@@ -7,7 +7,7 @@
 -->
 <!-- gh header -->
 <!Doctype html>
-<html lang="zh">
+<html lang="zh" dir="ltr">
 
 <head>
     <meta charset="UTF-8">
@@ -25,6 +25,7 @@
 
     <!-- layout -->
     <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/rtl.css">
 </head>
 
 <body>
@@ -48,8 +49,8 @@
     </a>
   </div>
 </header>
-        <!--gh content -->
-        <main class="layout-container">
+    <!--gh content -->
+    <main class="layout-container">
 <h1 class="container t-section-title">推荐广告位 (文章) 组件</h1>
 <section id="ads-article">
   <h3 class="container t-types-title">类型 1</h3>
@@ -392,48 +393,4 @@
           
         </li>
         
-      </ul>
-      
-    </div>
-    <footer></footer>
-  </div>
-</section>
-<script>
-  var u = navigator.userAgent
-  //  加载polyfill兼容IE11
-  if (/MSIE \d|Trident.*rv:/.test(u)) {
-    var script = document.createElement('script');
-    script.type = 'text/javaScript';
-    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.10.1/polyfill.min.js';
-    document.getElementsByTagName('head')[0].appendChild(script);
-  }
-  //  判断ios设备
-  if (/(?:iPhone|iPad|iPod|iOS|Mac OS)/i.test(u) && window.innerWidth < 1199) {
-    document.body.classList.add('IOS')
-  }
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/16.1.0/lazyload.min.js"></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js'
-        crossorigin='anonymous'></script>
-
-<!-- framework -->
-<script
-  src="https://centereu.kingdomsalvation.org/cdn/web-farm/findshepherd/framework/js/framework.min.js"></script>
-
-<!-- layout -->
-<script src="/js/index.js"></script>
-<script>
-  var u = navigator.userAgent
-  //  加载polyfill兼容IE11
-  if (!/MSIE \d|Trident.*rv:/.test(u)) {
-    var script = document.createElement('script');
-    script.type = 'text/javaScript';
-    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/prism.min.js';
-    document.getElementsByTagName('head')[0].appendChild(script);
-  }
-</script>
-
-</body>
-
-</html>
+        <li class="item"><a href="/pages/header-ad.html"><span class="num">24.</span>头部广告 组�

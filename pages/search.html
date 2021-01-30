@@ -7,7 +7,7 @@
 -->
 <!-- gh header -->
 <!Doctype html>
-<html lang="zh">
+<html lang="zh" dir="ltr">
 
 <head>
     <meta charset="UTF-8">
@@ -25,6 +25,7 @@
 
     <!-- layout -->
     <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/rtl.css">
 </head>
 
 <body>
@@ -48,40 +49,42 @@
     </a>
   </div>
 </header>
-        <!--gh content -->
-        <main class="layout-container">
-  <div class="container" style="margin-bottom: 30px;">
-    <h1 class="t-section-title">搜索 组件</h1>
-    <p class="t-desc">说明： 通过更改 form 标签上的 <span class="t-light-text">data-type</span> 来优先展示google 搜索还是站内搜索，传入值有：<span
-        class="t-light-text">google</span>、<span class="t-light-text">site</span></p>
-  </div>
-  <div class="container" id="header">
-    <div class="col-12 col-xl-8">
-      <div class="js-search-content">
-        <form role="search" method="get" class="search-form d-flex" data-localhost="https://www.findshepherd.com/"
-          data-google="https://www.findshepherd.com/search-gcse" action="https://www.findshepherd.com/search-gcse"
-          data-type="google">
-          <div class="input-plate d-flex">
-            <label for="form-search-input"><i class="icon-search"></i></label>
-            <input type="search" class="search-input search-field" placeholder="Search..." name="q" autocomplete="off"
-              value="God">
-            <button class="clear-btn"><i class="icon-close"></i></button>
-            <button class="search-change-btn d-flex align-item-center">
-              <span>This site</span><i class="icon-expand-more"></i></button>
-            <div class="search-options">
-              <button class="opt-item" data-option="site">This site</button>
-              <button class="opt-item" data-option="google">Google</button>
-            </div>
+    <!--gh content -->
+    <main class="layout-container">
+<div class="container" style="margin-bottom: 30px;">
+  <h1 class="t-section-title">搜索 组件</h1>
+  <p class="t-desc">说明： 通过更改 form 标签上的 <span class="t-light-text">data-type</span> 来优先展示google 搜索还是站内搜索，传入值有：<span
+      class="t-light-text">google</span>、<span class="t-light-text">site</span></p>
+</div>
+<div class="container" id="header">
+  <div class="col-12 col-xl-8">
+    <div class="js-search-content">
+      <form role="search" method="get" class="search-form d-flex" data-localhost="https://www.findshepherd.com/"
+        data-google="https://www.findshepherd.com/search-gcse" action="https://www.findshepherd.com/search-gcse"
+        data-type="google" no-gcse1>
+        <div class="input-plate d-flex">
+          <label for="form-search-input"><i class="icon-search"></i></label>
+          <input type="search" class="search-input search-field" placeholder="Search..." name="q" autocomplete="off"
+            value="">
+          <button class="clear-btn"><i class="icon-close"></i></button>
+          <button class="search-change-btn d-flex align-item-center">
+            <span>This site</span><i class="icon-expand-more"></i>
+          </button>
+          <div class="search-options">
+            <button class="opt-item" data-option="site">This site</button>
+            <button class="opt-item" data-option="google">Google</button>
           </div>
-          <button type="submit" class="search-btn btn d-none d-xl-inline-block">Search</button>
-        </form>
-      </div>
+          <!-- <button class="search-form-btn"><i class="icon-search"></i></button> -->
+        </div>
+        <button type="submit" class="search-btn btn d-none d-xl-inline-block">Search</button>
+      </form>
     </div>
-
   </div>
 
-  <!-- gh footer -->
-  </main> <!-- End content -->
+</div>
+
+<!-- gh footer -->
+</main> <!-- End content -->
 
 <button class="btn-floating btn-large" id="sidenav-btn"><i class="icon-menu"></i></button>
 <section class="layout-sidenav">
@@ -339,6 +342,10 @@
             </li>
             
           </ul>
+          
+        </li>
+        
+        <li class="item"><a href="/pages/header-ad.html"><span class="num">24.</span>头部广告 组件</a>
           
         </li>
         
